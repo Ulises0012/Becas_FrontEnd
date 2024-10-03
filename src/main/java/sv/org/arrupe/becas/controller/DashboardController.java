@@ -1,13 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sv.org.arrupe.becas.controller;
 
-/**
- *
- * @author aldes19
- */
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
 public class DashboardController {
-    
+
+    @GetMapping("/dashboard")
+    public String mostrarDashboard(Model model) {
+        // Aquí puedes agregar datos al modelo si es necesario
+        return "dashboard"; // Este es el nombre de la vista que se renderizará
+    }
 }

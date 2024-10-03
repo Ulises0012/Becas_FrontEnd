@@ -17,8 +17,6 @@ public class LoginController {
 
     @Autowired
     private UsuarioService usuarioService;
-
-    // Ruta raíz
     @GetMapping("/")
     public String rootRedirect(HttpSession session) {
         // Redirigir al dashboard si el usuario está autenticado, de lo contrario al login
@@ -41,7 +39,7 @@ public class LoginController {
         Optional<Usuario> usuario = usuarioService.autenticar(carnet, password);
         if (usuario.isPresent()) {
             session.setAttribute("usuario", usuario.get());
-            return "redirect:/dashboard";
+            return "redirect:/dashboard"; // Redirige al dashboard después de iniciar sesión
         } else {
             model.addAttribute("error", "Credenciales inválidas");
             return "login";
