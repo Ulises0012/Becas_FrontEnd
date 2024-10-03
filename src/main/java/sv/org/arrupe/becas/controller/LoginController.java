@@ -18,6 +18,16 @@ public class LoginController {
     @Autowired
     private UsuarioService usuarioService;
 
+    // Ruta raíz
+    @GetMapping("/")
+    public String rootRedirect(HttpSession session) {
+        // Redirigir al dashboard si el usuario está autenticado, de lo contrario al login
+        if (session.getAttribute("usuario") != null) {
+            return "redirect:/dashboard";
+        }
+        return "redirect:/login";
+    }
+
     @GetMapping("/login")
     public String mostrarLogin() {
         return "login";
