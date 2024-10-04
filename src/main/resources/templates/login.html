@@ -3,27 +3,28 @@
 <head>
     <title>Login</title>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
 </head>
 <body>
     <div class="login-container">
-        
         <h2>Iniciar Sesión</h2>
-        <form th:action="@{/login}" method="post">
-            <input type="text" id="carnet" name="carnet" placeholder="Carnet" required>
+        <!-- Aquí usaremos Thymeleaf para construir la URL completa hacia tu backend -->
+        <form th:action="@{'http://192.242.6.91:8081/login'}" method="post">
+            <input type="text" id="carnet" name="carnet" placeholder="Número de carnet" required>
             <input type="password" id="password" name="password" placeholder="Contraseña" required>
-            <button type="submit">SIGN IN</button>
+            <button type="submit">Iniciar sesión</button>
         </form>
+        <!-- Manejo de errores utilizando Thymeleaf -->
         <div th:if="${error}" class="error-message">
             <p th:text="${error}"></p>
         </div>
     </div>
-     <footer>
+    <footer>
         <p>© 2024 Colegio Español Padre Arrupe</p>
-        <a href="https://www.instagram.com/colegiopadrearrupeoficial/"><img src="/images/instagram_icon.png" alt="Instagram"></a>
-        <a href="https://www.facebook.com/colegiopadrearrupeoficial"><img src="/images/facebook_icon.png" alt="Facebook"></a>
-        <a href="https://www.colegiopadrearrupe.org/portal/"><img src="/images/logo.png" alt="Website"></a>
+        <a href="https://www.instagram.com/colegiopadrearrupeoficial/"><img src="/images/instagram_icon.png" alt="Instagram Colegio Padre Arrupe"></a>
+        <a href="https://www.facebook.com/colegiopadrearrupeoficial"><img src="/images/facebook_icon.png" alt="Facebook Colegio Padre Arrupe"></a>
+        <a href="https://www.colegiopadrearrupe.org/portal/"><img src="/images/logo.png" alt="Sitio Web Oficial del Colegio Padre Arrupe"></a>
     </footer>
 </body>
 </html>
