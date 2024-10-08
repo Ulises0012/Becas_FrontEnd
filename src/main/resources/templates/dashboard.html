@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dashboard</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de Becas</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/becas.css}">
 </head>
 <body>
-    <h1>Bienvenido al Dashboard</h1>
-    <p>Este es el panel principal de la aplicación.</p>
-    <a href="/logout">Cerrar sesión</a> <!-- Enlace para cerrar sesión -->
+    <header class="header">
+        <div class="logo">
+            <img th:src="@{/images/logo.png}" alt="Logo Colegio">
+        </div>
+        <h1>Tipos de Becas</h1>
+        <div class="user-info">
+            <span th:text="${carnet}"></span>
+            <a th:href="@{/logout}" class="logout-btn">Cerrar sesión</a>
+        </div>
+    </header>
+    <section class="content">
+        <div class="card-container">
+            <!-- Tarjeta de Solicitar Beca -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Solicitar Beca</h2>
+                </div>
+                <div class="card-body">
+                    <img th:src="@{/images/solicitar_beca.png}" alt="Solicitar Beca" class="card-image">
+                    <p>En este apartado podrás realizar las solicitudes de becas del estudiante.</p>
+                </div>
+            </div>
+            <!-- Tarjeta de Ver Mis Peticiones -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Ver Mis peticiones</h2>
+                </div>
+                <div class="card-body">
+                    <img th:src="@{/images/ver_mis_peticiones.png}" alt="Ver Mis Peticiones" class="card-image">
+                    <p>Aquí podrás ver las solicitudes que has realizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
