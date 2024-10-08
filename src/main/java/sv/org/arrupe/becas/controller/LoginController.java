@@ -31,16 +31,17 @@ public class LoginController {
     
     @GetMapping("/login")
     public String mostrarFormularioLogin(HttpSession session) {
+        // Si ya hay un usuario autenticado, redirigir al dashboard
         return session.getAttribute("usuarioAutenticado") != null ? 
                "redirect:/dashboard" : "login";
     }
     
     @PostMapping("/procesar-login")
     public String procesarLogin(@RequestParam String carnet,
-                              @RequestParam String password,
-                              HttpSession session,
-                              HttpServletRequest request,
-                              Model model) {
+                                @RequestParam String password,
+                                HttpSession session,
+                                HttpServletRequest request,
+                                Model model) {
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
@@ -74,10 +75,15 @@ public class LoginController {
                 
                 if ("success".equals(responseMap.get("status"))) {
                     System.out.println("Login exitoso, creando sesión para carnet: " + carnet);
-                    session.invalidate();
-                    session = request.getSession(true);  // Crear nueva sesión
+                    // No invalidar la sesión existente
                     session.setAttribute("usuarioAutenticado", true);
                     session.setAttribute("carnet", responseMap.get("carnet"));
+                    
+                    // Opcional: Depuración
+                    System.out.println("Sesión actual después del login:");
+                    System.out.println("usuarioAutenticado: " + session.getAttribute("usuarioAutenticado"));
+                    System.out.println("carnet: " + session.getAttribute("carnet"));
+                    
                     return "redirect:/dashboard";
                 }
             }
@@ -100,9 +106,15 @@ public class LoginController {
     
     @GetMapping("/dashboard")
     public String mostrarDashboard(HttpSession session, Model model) {
+        // Si no hay usuario autenticado, redirigir al login
         if (session.getAttribute("usuarioAutenticado") == null) {
             return "redirect:/login";
         }
+        
+        // Opcional: Depuración
+        System.out.println("Accediendo al dashboard con sesión:");
+        System.out.println("usuarioAutenticado: " + session.getAttribute("usuarioAutenticado"));
+        System.out.println("carnet: " + session.getAttribute("carnet"));
         
         model.addAttribute("carnet", session.getAttribute("carnet"));
         return "dashboard";
