@@ -1,128 +1,110 @@
 package sv.org.arrupe.becas.controller;
 
+import jakarta.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.http.*;
-import jakarta.servlet.http.HttpSession;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.Map;
-import java.util.HashMap;
-import org.springframework.web.client.ResourceAccessException;
 
 @Controller
 public class LoginController {
     
-    private final String API_URL = "http://192.242.6.129:8081";
+    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+    
+    @Value("${api.url}")
+    private String apiUrl;
+    
     private final RestTemplate restTemplate = new RestTemplate();
-    private final ObjectMapper objectMapper = new ObjectMapper();
-    
+
     @GetMapping("/")
-    public String root() {
-        // Mostrar directamente la página index/welcome
-        return "index";
+    public String index(HttpSession session) {
+        logger.debug("Accediendo a la página de inicio");
+        if (session.getAttribute("carnet") != null) {
+            return "redirect:/dashboard";
+        }
+        return "redirect:/login";
     }
-    
+
     @GetMapping("/login")
-    public String mostrarFormularioLogin(HttpSession session) {
-        // Si ya hay un usuario autenticado, redirigir al dashboard
-        return session.getAttribute("usuarioAutenticado") != null ? 
-               "redirect:/dashboard" : "login";
+    public String mostrarLogin(HttpSession session) {
+        if (session.getAttribute("carnet") != null) {
+            logger.debug("Usuario ya autenticado, redirigiendo a dashboard");
+            return "redirect:/dashboard";
+        }
+        logger.debug("Mostrando página de login");
+        return "login";
     }
-    
+
     @PostMapping("/procesar-login")
-    public String procesarLogin(@RequestParam String carnet,
-                                @RequestParam String password,
-                                HttpSession session,
-                                HttpServletRequest request,
-                                Model model) {
+    public String procesarLogin(@RequestParam String carnet, 
+                              @RequestParam String password,
+                              HttpSession session,
+                              RedirectAttributes redirectAttributes) {
+        logger.debug("Intentando iniciar sesión para el carnet: {}", carnet);
+        
         try {
+            // Configurar headers
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+
+            // Construir la URL de la API
+            String loginUrl = apiUrl + "/login?carnet=" + carnet + "&password=" + password;
             
-            MultiValueMap<String, String> requestBody = new LinkedMultiValueMap<>();
-            requestBody.add("carnet", carnet);
-            requestBody.add("password", password);
-            
-            HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
-            
-            System.out.println("Enviando solicitud de login a la API para carnet: " + carnet);
-            
-            ResponseEntity<String> response = restTemplate.exchange(
-                API_URL + "/login",
-                HttpMethod.POST,
-                requestEntity,
-                String.class
-            );
-            
-            System.out.println("Respuesta recibida de la API: " + response.getBody());
+            // Realizar la petición a la API
+            ResponseEntity<Map> response = restTemplate.postForEntity(loginUrl, null, Map.class);
             
             if (response.getStatusCode() == HttpStatus.OK) {
-                Map<String, String> responseMap = objectMapper.readValue(
-                    response.getBody(), 
-                    objectMapper.getTypeFactory().constructMapType(
-                        HashMap.class, 
-                        String.class, 
-                        String.class
-                    )
-                );
+                logger.debug("Login exitoso para el carnet: {}", carnet);
+                session.setAttribute("carnet", carnet);
                 
-                if ("success".equals(responseMap.get("status"))) {
-                    System.out.println("Login exitoso, creando sesión para carnet: " + carnet);
-                    // No invalidar la sesión existente
-                    session.setAttribute("usuarioAutenticado", true);
-                    session.setAttribute("carnet", responseMap.get("carnet"));
-                    
-                    // Opcional: Depuración
-                    System.out.println("Sesión actual después del login:");
-                    System.out.println("usuarioAutenticado: " + session.getAttribute("usuarioAutenticado"));
-                    System.out.println("carnet: " + session.getAttribute("carnet"));
-                    
-                    return "redirect:/dashboard";
+                // Obtener datos adicionales del usuario
+                String usuarioUrl = apiUrl + "/usuario/" + carnet;
+                ResponseEntity<Map> usuarioResponse = restTemplate.getForEntity(usuarioUrl, Map.class);
+                
+                if (usuarioResponse.getStatusCode() == HttpStatus.OK) {
+                    session.setAttribute("usuario", usuarioResponse.getBody());
                 }
+                
+                return "redirect:/dashboard";
+            } else {
+                logger.warn("Login fallido para el carnet: {}", carnet);
+                redirectAttributes.addFlashAttribute("error", "Credenciales inválidas");
+                return "redirect:/login";
             }
             
-            System.out.println("Login fallido para carnet: " + carnet);
-            model.addAttribute("error", "Credenciales inválidas");
-            return "login";
-            
-        } catch (ResourceAccessException e) {
-            System.err.println("Error de conexión con el servidor: " + e.getMessage());
-            model.addAttribute("error", "Error de conexión con el servidor. Por favor, intente más tarde.");
-            return "login";
         } catch (Exception e) {
-            System.err.println("Error en el login: " + e.getMessage());
-            e.printStackTrace();
-            model.addAttribute("error", "Error al procesar la solicitud");
-            return "login";
+            logger.error("Error al procesar el login: {}", e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "Error al procesar el login");
+            return "redirect:/login";
         }
     }
-    
+
     @GetMapping("/dashboard")
-    public String mostrarDashboard(HttpSession session, Model model) {
-        // Si no hay usuario autenticado, redirigir al login
-        if (session.getAttribute("usuarioAutenticado") == null) {
+    public String dashboard(HttpSession session, Model model) {
+        String carnet = (String) session.getAttribute("carnet");
+        if (carnet == null) {
+            logger.warn("Intento de acceso al dashboard sin autenticación");
             return "redirect:/login";
         }
         
-        // Opcional: Depuración
-        System.out.println("Accediendo al dashboard con sesión:");
-        System.out.println("usuarioAutenticado: " + session.getAttribute("usuarioAutenticado"));
-        System.out.println("carnet: " + session.getAttribute("carnet"));
-        
-        model.addAttribute("carnet", session.getAttribute("carnet"));
+        logger.debug("Accediendo al dashboard para el usuario: {}", carnet);
+        model.addAttribute("carnet", carnet);
+        model.addAttribute("usuario", session.getAttribute("usuario"));
         return "dashboard";
     }
-    
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
+        logger.debug("Cerrando sesión para el usuario: {}", session.getAttribute("carnet"));
         session.invalidate();
-        return "redirect:/";
+        return "redirect:/login";
     }
 }
