@@ -1479,3 +1479,841 @@ org.springframework.expression.spel.SpelEvaluationException: EL1008E: Property o
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-10 07:10:41 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 1228 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:10:41 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:10:41 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:10:41 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:10:41 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:10:44 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:10:44 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:10:44 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:10:44 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:10:44 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:10:44 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2719 ms
+2024-10-10 07:10:44 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:10:45 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:10:45 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 07:10:45 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:10:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:10:45 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 4.949 seconds (process running for 5.959)
+2024-10-10 07:11:19 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:11:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:11:19 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 07:11:20 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [223] milliseconds.
+2024-10-10 07:11:20 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:11:20 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:11:29 [http-nio-8080-exec-10] DEBUG s.o.a.b.controller.LoginController - Intentando iniciar sesión para el carnet: PG241350
+2024-10-10 07:11:50 [http-nio-8080-exec-10] ERROR s.o.a.b.controller.LoginController - Error al procesar el login: I/O error on POST request for "http://192.168.0.7:8081/login": Connection timed out: connect
+2024-10-10 07:11:50 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:14:09 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 25336 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:14:09 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:14:09 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:14:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:14:09 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:14:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:14:11 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:14:11 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:14:11 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:14:11 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:14:11 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1722 ms
+2024-10-10 07:14:11 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:14:11 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:14:11 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 07:14:11 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:14:11 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:14:11 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 4.0 seconds (process running for 4.895)
+2024-10-10 07:14:27 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:14:27 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:14:27 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 07:14:28 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:14:30 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:14:30 [http-nio-8080-exec-4] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:14:35 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Intentando iniciar sesión para el carnet: PG241350
+2024-10-10 07:14:36 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Login exitoso para el carnet: PG241350
+2024-10-10 07:14:36 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario: PG241350
+2024-10-10 07:14:50 [http-nio-8080-exec-4] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:14:50 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario: PG241350
+2024-10-10 07:14:54 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:14:54 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario: PG241350
+2024-10-10 07:29:58 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 3496 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:29:58 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:29:58 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:29:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:29:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:29:59 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:29:59 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:29:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:29:59 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:30:00 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:30:00 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1259 ms
+2024-10-10 07:30:00 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:30:00 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:30:00 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:30:00 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:30:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:30:00 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.51 seconds (process running for 2.945)
+2024-10-10 07:30:15 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:30:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:30:15 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 07:30:15 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Cerrando sesión para el usuario: null
+2024-10-10 07:30:15 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:30:20 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:30:20 [http-nio-8080-exec-6] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:30:22 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:30:22 [http-nio-8080-exec-10] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:30:29 [http-nio-8080-exec-6] DEBUG s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario: PG241350
+2024-10-10 07:30:31 [http-nio-8080-exec-10] DEBUG s.o.a.b.controller.LoginController - Cerrando sesión para el usuario: PG241350
+2024-10-10 07:30:31 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:32:27 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 4756 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:32:27 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:32:27 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:32:27 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:32:27 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:32:28 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:32:28 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:32:28 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:32:28 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:32:28 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:32:28 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1292 ms
+2024-10-10 07:32:29 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:32:29 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:32:29 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:32:29 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:32:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:32:30 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.89 seconds (process running for 3.324)
+2024-10-10 07:32:33 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:32:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:32:33 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 07:32:33 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:42:08 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Usuario ya autenticado, redirigiendo a dashboard
+2024-10-10 07:42:08 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario: admin
+2024-10-10 07:42:15 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Cerrando sesión para el usuario: admin
+2024-10-10 07:42:15 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:42:21 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario: PG241350
+2024-10-10 07:42:22 [http-nio-8080-exec-10] DEBUG s.o.a.b.controller.LoginController - Cerrando sesión para el usuario: PG241350
+2024-10-10 07:42:22 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:42:32 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:46:20 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 19228 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:46:20 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:46:21 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:46:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:46:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:46:22 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:46:23 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:46:23 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:46:23 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:46:23 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:46:23 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2041 ms
+2024-10-10 07:46:23 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:46:23 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:46:23 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:46:23 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:46:23 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:46:23 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 3.35 seconds (process running for 3.961)
+2024-10-10 07:46:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:46:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:46:34 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-10 07:46:34 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [103] milliseconds.
+2024-10-10 07:46:34 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:46:34 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:46:43 [http-nio-8080-exec-5] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: PG241350
+2024-10-10 07:46:44 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Estudiante, carnet=PG241350, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 13:46:44 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 07:46:44 [http-nio-8080-exec-5] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: PG241350, rol: Estudiante
+2024-10-10 07:46:44 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: PG241350
+2024-10-10 07:46:44 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario con carnet: PG241350
+2024-10-10 07:47:03 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: PG241350
+2024-10-10 07:47:03 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:47:40 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 07:47:40 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 13:47:40 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 07:47:40 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 07:47:40 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 07:51:29 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 24260 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:51:29 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:51:29 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:51:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:51:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:51:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:51:30 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:51:30 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:51:30 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:51:30 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:51:30 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1207 ms
+2024-10-10 07:51:30 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:51:30 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:51:31 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:51:31 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:51:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:51:31 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.323 seconds (process running for 2.813)
+2024-10-10 07:51:32 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:51:32 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:51:32 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-10 07:51:33 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:51:33 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:51:58 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 07:51:58 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 13:51:58 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 07:51:58 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 07:51:58 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 07:51:58 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario con carnet: admin
+2024-10-10 07:53:52 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 9912 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:53:52 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:53:52 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:53:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:53:52 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:53:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:53:54 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:53:54 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:53:54 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:53:54 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:53:54 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1427 ms
+2024-10-10 07:53:54 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:53:54 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:53:54 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:53:54 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:53:54 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:53:54 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 3.477 seconds (process running for 3.932)
+2024-10-10 07:53:54 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:53:54 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:53:54 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 07:53:54 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:53:54 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:54:04 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 07:54:04 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 13:54:04 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 07:54:04 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 07:54:04 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 07:54:33 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 2608 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:54:33 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:54:33 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:54:33 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:54:33 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:54:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:54:34 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:54:34 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:54:34 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:54:34 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:54:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 985 ms
+2024-10-10 07:54:34 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:54:35 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:54:35 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:54:35 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:54:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:54:35 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 1.939 seconds (process running for 2.32)
+2024-10-10 07:54:39 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:54:39 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:54:39 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-10 07:54:40 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [101] milliseconds.
+2024-10-10 07:54:40 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 07:54:40 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:54:48 [http-nio-8080-exec-4] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 07:54:48 [http-nio-8080-exec-4] ERROR s.o.a.b.controller.LoginController - Error al procesar login para carnet: admin
+org.springframework.web.client.HttpClientErrorException$Unauthorized: 401 : [no body]
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:106)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:183)
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:137)
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63)
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:942)
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:891)
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790)
+	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:538)
+	at sv.org.arrupe.becas.controller.LoginController.procesarLogin(LoginController.java:59)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2024-10-10 07:54:48 [http-nio-8080-exec-6] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:55:03 [http-nio-8080-exec-1] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 07:55:03 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 13:55:03 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 07:55:03 [http-nio-8080-exec-1] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 07:55:03 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 07:55:03 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario con carnet: admin
+2024-10-10 07:55:40 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 19100 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:55:40 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:55:40 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:55:40 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:55:40 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:55:41 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:55:41 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:55:41 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:55:41 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:55:42 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:55:42 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1631 ms
+2024-10-10 07:55:42 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:55:42 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:55:42 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:55:42 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:55:42 [restartedMain] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-10-10 07:55:42 [restartedMain] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-10-10 07:55:42 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2024-10-10 07:56:53 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: admin
+2024-10-10 07:56:53 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:58:21 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 24044 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 07:58:21 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 07:58:21 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 07:58:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 07:58:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 07:58:22 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 07:58:22 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:58:22 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 07:58:22 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 07:58:22 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 07:58:22 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1090 ms
+2024-10-10 07:58:22 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 07:58:22 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 07:58:22 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 07:58:22 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 07:58:22 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 07:58:22 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.001 seconds (process running for 2.439)
+2024-10-10 07:58:30 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 07:58:30 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 07:58:30 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 07:58:30 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:58:38 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 07:58:39 [http-nio-8080-exec-6] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 13:58:38 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 07:58:39 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 07:58:39 [http-nio-8080-exec-6] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 07:58:39 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 07:58:53 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: admin
+2024-10-10 07:58:53 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:59:21 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: null
+2024-10-10 07:59:21 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:59:25 [http-nio-8080-exec-3] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: null
+2024-10-10 07:59:25 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:59:33 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: null
+2024-10-10 07:59:33 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 07:59:39 [http-nio-8080-exec-3] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: PG241350
+2024-10-10 07:59:39 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Estudiante, carnet=PG241350, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 13:59:39 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 07:59:39 [http-nio-8080-exec-3] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: PG241350, rol: Estudiante
+2024-10-10 07:59:39 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: PG241350
+2024-10-10 07:59:39 [http-nio-8080-exec-5] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard para el usuario con carnet: PG241350
+2024-10-10 08:05:47 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 16804 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:05:47 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:05:47 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:05:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:05:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:05:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:05:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:05:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:05:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:05:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:05:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2125 ms
+2024-10-10 08:05:50 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:05:50 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:05:50 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 08:05:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:05:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:05:50 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 3.59 seconds (process running for 4.068)
+2024-10-10 08:05:57 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:05:57 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:05:57 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2024-10-10 08:05:57 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [122] milliseconds.
+2024-10-10 08:05:57 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:05:57 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:06:05 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:06:05 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:06:05 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:06:05 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:06:05 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:06:05 [http-nio-8080-exec-9] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:06:29 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 9284 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:06:29 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:06:29 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:06:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:06:29 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:06:30 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:06:30 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:06:30 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:06:30 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:06:30 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:06:30 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1597 ms
+2024-10-10 08:06:31 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:06:31 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:06:31 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 08:06:31 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:06:31 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:06:31 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.816 seconds (process running for 3.389)
+2024-10-10 08:06:50 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:06:50 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:06:50 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 08:06:50 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [112] milliseconds.
+2024-10-10 08:06:50 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:06:50 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:06:57 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:06:57 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:06:57 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:06:57 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:06:57 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:06:57 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:09:20 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 18148 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:09:20 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:09:20 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:09:20 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:09:20 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:09:22 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:09:22 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:09:22 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:09:22 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:09:23 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:09:23 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2326 ms
+2024-10-10 08:09:23 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:09:23 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:09:23 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 08:09:23 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:09:24 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:09:24 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 4.318 seconds (process running for 5.157)
+2024-10-10 08:09:27 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:09:27 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:09:27 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-10 08:09:27 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:09:27 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:09:36 [http-nio-8080-exec-5] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:09:36 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:09:36 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:09:36 [http-nio-8080-exec-5] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:09:36 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:09:36 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:14:39 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 11104 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:14:39 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:14:39 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:14:39 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:14:39 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:14:40 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:14:40 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:14:40 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:14:40 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:14:40 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:14:40 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1119 ms
+2024-10-10 08:14:40 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:14:40 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:14:40 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 08:14:40 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:14:40 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:14:40 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.268 seconds (process running for 2.794)
+2024-10-10 08:14:49 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:14:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:14:49 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-10 08:14:49 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:14:49 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:14:59 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:14:59 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:14:59 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:14:59 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:14:59 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:14:59 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:16:30 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 24268 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:16:30 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:16:30 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:16:31 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:16:31 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:16:34 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:16:34 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:16:34 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:16:34 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:16:34 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:16:34 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3284 ms
+2024-10-10 08:16:34 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:16:35 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:16:35 [restartedMain] WARN  o.s.b.d.a.OptionalLiveReloadServer - Unable to start LiveReload server
+2024-10-10 08:16:35 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:16:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:16:35 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 5.618 seconds (process running for 6.23)
+2024-10-10 08:16:36 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:16:36 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:16:36 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-10 08:16:36 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:16:36 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:16:58 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 2568 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:16:58 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:16:58 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:16:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:16:58 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:16:59 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:16:59 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:16:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:16:59 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:16:59 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:16:59 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1352 ms
+2024-10-10 08:16:59 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:17:00 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:17:00 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:17:00 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:17:00 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:17:00 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.644 seconds (process running for 3.188)
+2024-10-10 08:17:29 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:17:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:17:29 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-10 08:17:29 [http-nio-8080-exec-1] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:17:30 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:17:30 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:17:30 [http-nio-8080-exec-1] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:17:30 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:17:30 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:18:43 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 23980 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:18:43 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:18:43 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:18:43 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:18:44 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:18:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:18:45 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:18:45 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:18:45 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:18:45 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:18:45 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1237 ms
+2024-10-10 08:18:45 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:18:45 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:18:45 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:18:45 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:18:45 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:18:45 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.159 seconds (process running for 2.611)
+2024-10-10 08:18:59 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:18:59 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:18:59 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 08:18:59 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:18:59 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:19:47 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:19:47 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:19:47 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:19:47 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:19:47 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:19:47 [http-nio-8080-exec-9] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:25:33 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 23384 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:25:33 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:25:33 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:25:33 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:25:33 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:25:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:25:35 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:25:35 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:25:35 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:25:35 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:25:35 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2382 ms
+2024-10-10 08:25:36 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:25:36 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:25:36 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:25:36 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:25:36 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:25:36 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 4.283 seconds (process running for 4.683)
+2024-10-10 08:25:36 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:25:36 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:25:36 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-10 08:25:36 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:25:36 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:25:46 [http-nio-8080-exec-4] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:25:46 [http-nio-8080-exec-4] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:25:46 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:25:46 [http-nio-8080-exec-4] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:25:46 [http-nio-8080-exec-4] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:25:46 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:27:17 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 17668 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:27:17 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:27:17 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:27:17 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:27:17 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:27:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:27:18 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:27:18 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:27:18 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:27:18 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:27:18 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 979 ms
+2024-10-10 08:27:18 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:27:18 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:27:18 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:27:18 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:27:18 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:27:18 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 1.815 seconds (process running for 2.22)
+2024-10-10 08:27:22 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:27:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:27:22 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 08:27:22 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:27:22 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:27:32 [http-nio-8080-exec-9] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:27:32 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:27:32 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:27:32 [http-nio-8080-exec-9] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:27:33 [http-nio-8080-exec-9] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:27:33 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:28:34 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 9548 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:28:34 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:28:34 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:28:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:28:34 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:28:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:28:35 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:28:35 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:28:35 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:28:35 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:28:35 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 852 ms
+2024-10-10 08:28:35 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:28:35 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:28:35 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:28:35 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:28:35 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:28:36 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 1.692 seconds (process running for 2.022)
+2024-10-10 08:28:40 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:28:40 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:28:40 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2024-10-10 08:28:40 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:28:40 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:28:48 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:28:48 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:28:48 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:28:48 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:28:48 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:28:48 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:29:48 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 13668 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:29:48 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:29:48 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:29:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:29:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:29:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:29:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:29:50 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:29:50 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:29:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:29:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1776 ms
+2024-10-10 08:29:50 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:29:51 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:29:51 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:29:51 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:29:51 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:29:51 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 3.183 seconds (process running for 3.701)
+2024-10-10 08:29:51 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:29:51 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:29:51 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-10 08:29:51 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:29:51 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:29:58 [http-nio-8080-exec-5] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:29:58 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:29:58 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:29:58 [http-nio-8080-exec-5] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:29:58 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:29:58 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:30:54 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 13868 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:30:54 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:30:54 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:30:54 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:30:54 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:30:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:30:55 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:30:55 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:30:55 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:30:55 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:30:55 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1002 ms
+2024-10-10 08:30:55 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:30:55 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:30:55 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:30:55 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:30:55 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:30:55 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 1.886 seconds (process running for 2.221)
+2024-10-10 08:30:58 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:30:58 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:30:58 [http-nio-8080-exec-3] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 08:30:59 [http-nio-8080-exec-3] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:30:59 [http-nio-8080-exec-4] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:31:03 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:31:03 [http-nio-8080-exec-6] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:31:08 [http-nio-8080-exec-3] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:31:08 [http-nio-8080-exec-4] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:31:14 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:31:15 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:31:14 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:31:15 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:31:15 [http-nio-8080-exec-8] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:31:15 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:31:47 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 5656 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:31:47 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:31:47 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:31:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:31:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:31:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:31:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:31:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:31:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:31:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:31:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1706 ms
+2024-10-10 08:31:49 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:31:50 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:31:50 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:31:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:31:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:31:50 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.956 seconds (process running for 3.419)
+2024-10-10 08:31:50 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:31:50 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:31:50 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 08:31:50 [http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [103] milliseconds.
+2024-10-10 08:31:50 [http-nio-8080-exec-1] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:31:50 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:31:57 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:31:57 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:31:57 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:31:57 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:31:57 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:31:57 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:32:47 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 17192 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:32:47 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:32:47 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:32:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:32:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:32:48 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:32:48 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:32:48 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:32:48 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:32:48 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:32:48 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1000 ms
+2024-10-10 08:32:48 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:32:48 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:32:48 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:32:48 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:32:48 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:32:48 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 1.929 seconds (process running for 2.273)
+2024-10-10 08:32:52 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:32:52 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:32:52 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-10-10 08:32:52 [http-nio-8080-exec-1] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:32:52 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:33:01 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:33:01 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:33:01 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:33:01 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:33:01 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:33:01 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:33:38 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 10440 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:33:38 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:33:38 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:33:38 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:33:38 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:33:39 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:33:39 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:33:39 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:33:39 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:33:39 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:33:39 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 972 ms
+2024-10-10 08:33:39 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:33:39 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:33:39 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:33:39 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:33:39 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:33:39 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 1.803 seconds (process running for 2.149)
+2024-10-10 08:33:42 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:33:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:33:42 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-10 08:33:42 [http-nio-8080-exec-1] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:33:42 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:33:55 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:33:55 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:33:55 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:33:55 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:33:55 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:33:55 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:35:49 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 21300 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:35:49 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:35:49 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:35:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:35:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:35:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:35:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:35:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:35:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:35:50 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:35:50 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 927 ms
+2024-10-10 08:35:50 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:35:50 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:35:50 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:35:50 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:35:50 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:35:50 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 1.759 seconds (process running for 2.077)
+2024-10-10 08:36:28 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:36:28 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:36:28 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-10-10 08:36:28 [http-nio-8080-exec-1] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:36:28 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:36:34 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:36:35 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:36:35 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:36:35 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:36:35 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:36:35 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:36:42 [http-nio-8080-exec-2] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: admin
+2024-10-10 08:36:42 [http-nio-8080-exec-3] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:36:47 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Accediendo a la página de inicio
+2024-10-10 08:36:47 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:36:51 [http-nio-8080-exec-1] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:36:51 [http-nio-8080-exec-10] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:37:03 [http-nio-8080-exec-6] INFO  s.o.a.b.controller.LoginController - Cerrando sesión para el usuario con carnet: null
+2024-10-10 08:37:03 [http-nio-8080-exec-5] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:37:45 [http-nio-8080-exec-1] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:37:47 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:37:46 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:37:47 [http-nio-8080-exec-1] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:37:47 [http-nio-8080-exec-1] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:37:47 [http-nio-8080-exec-10] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
+2024-10-10 08:40:55 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Starting BecasApplication using Java 17.0.11 with PID 14304 (C:\Users\aldes19\Desktop\becas+\Becas\build\classes\java\main started by aldes19 in C:\Users\aldes19\Desktop\becas+\Becas)
+2024-10-10 08:40:55 [restartedMain] DEBUG s.org.arrupe.becas.BecasApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2024-10-10 08:40:55 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - No active profile set, falling back to 1 default profile: "default"
+2024-10-10 08:40:55 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-10-10 08:40:55 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-10-10 08:40:56 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2024-10-10 08:40:56 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:40:56 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-10-10 08:40:56 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2024-10-10 08:40:56 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-10-10 08:40:56 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1165 ms
+2024-10-10 08:40:57 [restartedMain] INFO  o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page template: index
+2024-10-10 08:40:57 [restartedMain] WARN  o.t.templatemode.TemplateMode - [THYMELEAF][restartedMain] Unknown Template Mode 'HTML5'. Must be one of: 'HTML', 'XML', 'TEXT', 'JAVASCRIPT', 'CSS', 'RAW'. Using default Template Mode 'HTML'.
+2024-10-10 08:40:57 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2024-10-10 08:40:57 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-10-10 08:40:57 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2024-10-10 08:40:57 [restartedMain] INFO  s.org.arrupe.becas.BecasApplication - Started BecasApplication in 2.13 seconds (process running for 2.574)
+2024-10-10 08:41:00 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-10 08:41:00 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-10-10 08:41:00 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2024-10-10 08:41:00 [http-nio-8080-exec-1] WARN  s.o.a.b.controller.LoginController - Intento de acceso al dashboard admin sin autenticación
+2024-10-10 08:41:00 [http-nio-8080-exec-2] DEBUG s.o.a.b.controller.LoginController - Mostrando página de login
+2024-10-10 08:41:07 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Procesando login para carnet: admin
+2024-10-10 08:41:07 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Respuesta recibida desde API: <200 OK OK,{message=Login exitoso, rol=Admin, carnet=admin, status=success},[Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json", Transfer-Encoding:"chunked", Date:"Thu, 10 Oct 2024 14:41:07 GMT", Keep-Alive:"timeout=60", Connection:"keep-alive"]>
+2024-10-10 08:41:07 [http-nio-8080-exec-7] INFO  s.o.a.b.controller.LoginController - Login exitoso, carnet: admin, rol: Admin
+2024-10-10 08:41:07 [http-nio-8080-exec-7] DEBUG s.o.a.b.controller.LoginController - Datos de usuario obtenidos para carnet: admin
+2024-10-10 08:41:07 [http-nio-8080-exec-8] INFO  s.o.a.b.controller.LoginController - Accediendo al dashboard admin para el usuario con carnet: admin
