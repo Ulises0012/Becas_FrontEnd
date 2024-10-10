@@ -25,12 +25,9 @@ public class LoginController {
     private final RestTemplate restTemplate = new RestTemplate();
 
     @GetMapping("/")
-    public String index(HttpSession session) {
+    public String index() {
         logger.debug("Accediendo a la página de inicio");
-        if (session.getAttribute("carnet") != null) {
-            return "redirect:/dashboard";
-        }
-        return "redirect:/login";
+        return "index";  // Muestra la página de inicio sin redirigir
     }
 
     @GetMapping("/login")

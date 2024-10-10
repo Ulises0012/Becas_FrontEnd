@@ -1,0 +1,142 @@
+/* Variables para colores */
+:root {
+    --primary-red: #dc1b22;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --text-dark: #333333;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-gray);
+}
+
+.dashboard-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Estilos del header */
+header {
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-center {
+    flex: 2;
+    text-align: center;
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-button {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--white);
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.header-button:hover {
+    background-color: var(--white);
+    color: var(--primary-red);
+}
+
+.logout-btn {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+}
+
+/* Contenido principal */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid de opciones */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dashboard-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-button-link {
+    text-decoration: none;
+    display: block;
+}
+
+.card-button {
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: #b01419;
+}
+
+.card-image {
+    width: 200px;
+    height: 150px;
+    object-fit: contain;
+    margin: 1rem 0;
+}
+
+.card-description {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
