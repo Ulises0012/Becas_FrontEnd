@@ -28,15 +28,14 @@ public class LoginController {
     @GetMapping("/")
     public String index() {
         logger.debug("Accediendo a la página de inicio");
-<<<<<<< HEAD
         return "index";  // Muestra la página de inicio sin redirigir
-=======
+
         if (session.getAttribute("carnet") != null) {
             logger.info("Usuario ya autenticado con carnet: {}, redirigiendo al dashboard", session.getAttribute("carnet"));
             return "redirect:/dashboard";
         }
         return "redirect:/login";
->>>>>>> 988d4eb92bbce7544158c83fa0adff55b987fd12
+
     }
 
     @GetMapping("/login")
