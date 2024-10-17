@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -24,6 +25,7 @@ public class LoginController {
     private String apiUrl;
 
     private final RestTemplate restTemplate = new RestTemplate();
+
     @GetMapping("/")
     public String index(HttpSession session) {
         logger.debug("Accediendo a la página de inicio");
@@ -32,7 +34,7 @@ public class LoginController {
             return "redirect:/dashboard";
         }
         return "redirect:/login";
-        }
+    }
 
     @GetMapping("/login")
     public String mostrarLogin(HttpSession session) {
@@ -51,37 +53,47 @@ public class LoginController {
                                 RedirectAttributes redirectAttributes) {
         logger.info("Procesando login para carnet: {}", carnet);
         try {
-            // Construir la URL de la API para el login
-            String loginUrl = apiUrl + "/login?carnet=" + carnet + "&password=" + password;
+            String loginUrl = apiUrl + "/signin";
+            logger.debug("URL de login: {}", loginUrl);
 
-            // Realizar la petición a la API
-            ResponseEntity<Map> response = restTemplate.postForEntity(loginUrl, null, Map.class);
-            logger.debug("Respuesta recibida desde API: {}", response);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            Map<String, String> body = Map.of("carnet", carnet, "password", password);
+            HttpEntity<Map<String, String>> request = new HttpEntity<>(body, headers);
+
+            logger.debug("Enviando solicitud a la API para carnet: {}", carnet);
+            ResponseEntity<Map> response = restTemplate.exchange(loginUrl, HttpMethod.POST, request, Map.class);
+            logger.debug("Respuesta recibida desde API: Status: {}, Body: {}", response.getStatusCode(), response.getBody());
 
             if (response.getStatusCode() == HttpStatus.OK) {
-                Map<String, Object> body = response.getBody();
-                String rol = (String) body.get("rol");  // Obtener el rol del usuario
+                Map<String, Object> responseBody = response.getBody();
+                String rol = (String) responseBody.get("rol");
+                String token = (String) responseBody.get("token");
 
                 logger.info("Login exitoso, carnet: {}, rol: {}", carnet, rol);
 
                 session.setAttribute("carnet", carnet);
-                session.setAttribute("rol", rol);  // Guardar el rol en la sesión
+                session.setAttribute("rol", rol);
+                session.setAttribute("token", token);
 
-                // Obtener datos adicionales del usuario
+                // Obtener datos adicionales del usuario usando el token
                 String usuarioUrl = apiUrl + "/usuario/" + carnet;
-                ResponseEntity<Map> usuarioResponse = restTemplate.getForEntity(usuarioUrl, Map.class);
+                HttpHeaders authHeaders = new HttpHeaders();
+                authHeaders.setBearerAuth(token);
+                HttpEntity<Void> authRequest = new HttpEntity<>(authHeaders);
+                ResponseEntity<Map> usuarioResponse = restTemplate.exchange(usuarioUrl, HttpMethod.GET, authRequest, Map.class);
 
                 if (usuarioResponse.getStatusCode() == HttpStatus.OK) {
                     session.setAttribute("usuario", usuarioResponse.getBody());
                     logger.debug("Datos de usuario obtenidos para carnet: {}", carnet);
                 }
 
-                // Redirigir según el rol del usuario
                 if ("Admin".equalsIgnoreCase(rol)) {
                     return "redirect:/dashboard_admin";
                 } else if ("Estudiante".equalsIgnoreCase(rol)) {
                     return "redirect:/dashboard";
                 } else {
+                    logger.warn("Rol no reconocido para carnet: {}, rol: {}", carnet, rol);
                     redirectAttributes.addFlashAttribute("error", "Rol no reconocido");
                     return "redirect:/login";
                 }
@@ -92,9 +104,18 @@ public class LoginController {
                 return "redirect:/login";
             }
 
+        } catch (HttpClientErrorException e) {
+            logger.error("Error HTTP al procesar login para carnet: {}. Estado: {}, Respuesta: {}", 
+                         carnet, e.getStatusCode(), e.getResponseBodyAsString(), e);
+            if (e.getStatusCode() == HttpStatus.UNAUTHORIZED) {
+                redirectAttributes.addFlashAttribute("error", "Credenciales inválidas");
+            } else {
+                redirectAttributes.addFlashAttribute("error", "Error al procesar el login: " + e.getMessage());
+            }
+            return "redirect:/login";
         } catch (Exception e) {
-            logger.error("Error al procesar login para carnet: {}", carnet, e);
-            redirectAttributes.addFlashAttribute("error", "Error al procesar el login");
+            logger.error("Error inesperado al procesar login para carnet: {}", carnet, e);
+            redirectAttributes.addFlashAttribute("error", "Error inesperado al procesar el login");
             return "redirect:/login";
         }
     }
@@ -124,14 +145,13 @@ public class LoginController {
         logger.info("Accediendo al dashboard admin para el usuario con carnet: {}", carnet);
         model.addAttribute("carnet", carnet);
         model.addAttribute("usuario", session.getAttribute("usuario"));
-        return "dashboard_admin"; // Asegúrate de que esta vista existe
+        return "dashboard_admin";
     }
-
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
-        logger.info("Cerrando sesión para el usuario con carnet: {}", session.getAttribute("carnet"));
         session.invalidate();
+        logger.info("Sesión cerrada");
         return "redirect:/login";
     }
 }
