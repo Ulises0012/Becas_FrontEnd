@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/solicitudes")
-public class Redireccionamientos {
+@RequestMapping("/becados")
+public class BecadosController {
 
     @GetMapping
     public String mostrarSolicitudes() {
-        return "solicitudes"; // Nombre del archivo sin la extensión .html
+        return "becados"; // Nombre del archivo sin la extensión .html
     }
     
     @GetMapping("/dashboard_admin")

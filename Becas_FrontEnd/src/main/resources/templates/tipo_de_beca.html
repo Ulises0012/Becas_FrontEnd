@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tipos de Becas - Sistema de Becas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/tipos_beca.css}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-left">
+                <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
+            </div>
+            <div class="header-buttons">
+                <a th:href="@{/dashboard}" class="header-button">Inicio</a>
+                <a th:href="@{/logout}" class="header-button">Cerrar sesión</a>
+            </div>
+        </header>
+        
+        <main>
+            <h1>Información de las Becas</h1>
+            
+            <div class="becas-container">
+                <!-- Beca Completa -->
+                <div class="beca-item">
+                    <div class="beca-header">Beca Completa</div>
+                    <div class="beca-content">
+                        <div class="beca-text">
+                            Aquí irá la información de la beca.
+                        </div>
+                        <div class="beca-image">
+                            <img th:src="@{/images/beca_completa.png}" alt="Beca Completa">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beca de Útiles -->
+                <div class="beca-item">
+                    <div class="beca-header">Beca de Útiles</div>
+                    <div class="beca-content">
+                        <div class="beca-text">
+                            Aquí irá la información de la beca.
+                        </div>
+                        <div class="beca-image">
+                            <img th:src="@{/images/beca_utiles.png}" alt="Beca de Útiles">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beca de Transporte -->
+                <div class="beca-item">
+                    <div class="beca-header">Beca De Uniforme</div>
+                    <div class="beca-content">
+                        <div class="beca-text">
+                            Aquí irá la información de la beca.
+                        </div>
+                        <div class="beca-image">
+                            <img th:src="@{/images/beca_uniformes.png}" alt="Beca de Transporte">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beca Alimenticia -->
+                <div class="beca-item">
+                    <div class="beca-header">Beca Alimenticia</div>
+                    <div class="beca-content">
+                        <div class="beca-text">
+                            Aquí irá la información de la beca.
+                        </div>
+                        <div class="beca-image">
+                            <img th:src="@{/images/becas_alimenticia.png}" alt="Beca Alimenticia">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
