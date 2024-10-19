@@ -7,6 +7,8 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="/css/form_inicio.css">
+    
+    <!-- Scripts de autenticación -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             checkAuth();
@@ -26,9 +28,6 @@
         setTimeout("preventBack()", 0);
         window.onunload = function () { null };
     </script>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     
     <!-- Agregar token desde la sesión al localStorage si no existe -->
     <script th:inline="javascript">
@@ -48,12 +47,10 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Solo verificar el token si no hay una sesión activa
             if (!/*[[${session.carnet}]]*/) {
                 checkAuth();
             }
             
-            // Agregar listener para interceptar navegación hacia atrás
             window.history.pushState(null, null, window.location.href);
             window.onpopstate = function(event) {
                 window.history.pushState(null, null, window.location.href);
@@ -67,7 +64,6 @@
             }
         }
         
-        // Mejorado el manejo de la navegación hacia atrás
         window.onunload = function() { 
             return undefined;
         };
@@ -86,7 +82,8 @@
         </header>
         <h1>Solicitud de Beca</h1>
         
-        <form action="#" th:action="@{/solicitar-beca}" method="post">
+        <!-- Formulario de solicitud de beca -->
+        <form id="solicitudBecaForm" th:action="@{/solicitar-beca}" method="post">
             <!-- Campo oculto para el carnet -->
             <input type="hidden" name="carnet" th:value="${usuario.carnet}">
             
@@ -137,6 +134,31 @@
         </form>
         
     </div>
+
+    <!-- Script para manejar el envío y la redirección -->
+    <script>
+        document.getElementById('solicitudBecaForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Evitar el comportamiento normal del formulario
+            const form = event.target;
+
+            // Realiza la petición POST del formulario usando Fetch API
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+            }).then(response => {
+                if (response.ok) {
+                    // Redirigir a la página de dispositivos_form después de un envío exitoso
+                    window.location.href = '/dispositivos_form';
+                } else {
+                    // Manejar errores
+                    alert('Error al enviar la solicitud');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Error al enviar la solicitud');
+            });
+        });
+    </script>
 
     <script src="/js/auth.js"></script>
 </body>

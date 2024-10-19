@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Dispositivos Electrónicos</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="/css/form_inicio.css">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            const sessionToken = /*[[${session.token}]]*/ null;
+            if (sessionToken && !localStorage.getItem('token')) {
+                localStorage.setItem('token', sessionToken);
+            }
+            window.history.pushState(null, null, window.location.href);
+        }
+        /*]]>*/
+    </script>
+    <script th:src="@{/js/auth.js}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!/*[[${session.carnet}]]*/) {
+                checkAuth();
+            }
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function(event) {
+                window.history.pushState(null, null, window.location.href);
+            };
+        });
+
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';
+            }
+        }
+        
+        window.onunload = function() { 
+            return undefined;
+        };
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <header>
+            <div class="header-left">
+                <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
+            </div>
+            <div class="header-buttons">
+                <a th:href="@{/dashboard}" class="header-button">Inicio</a>
+                <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
+            </div>
+        </header>
+        <h1>Gestión de Dispositivos Electrónicos</h1>
+        
+        <!-- Formulario para agregar dispositivo -->
+        <form id="agregarDispositivoForm" th:action="@{/api/becados/dispositivos/agregar}" method="post">
+            <div class="form-group">
+                <label for="tipoDispositivo">Tipo de Dispositivo:</label>
+                <select id="tipoDispositivo" name="idTipo" class="form-control" required>
+                    <option value="">Seleccione un tipo de dispositivo</option>
+                    <option th:each="tipo : ${tiposDispositivos}" th:value="${tipo.idTipo}" th:text="${tipo.nombreDispositivo}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cantidadDispositivo">Cantidad:</label>
+                <input type="number" id="cantidadDispositivo" name="cantidad" class="form-control" min="1" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Agregar Dispositivo</button>
+            </div>
+        </form>
+
+        <!-- Lista de dispositivos actuales -->
+        <div id="listaDispositivos">
+            <h2>Dispositivos Actuales</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Dispositivo</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="dispositivo : ${dispositivos}">
+                        <td th:text="${dispositivo.tipoDispositivo.nombreDispositivo}"></td>
+                        <td th:text="${dispositivo.cantidad}"></td>
+                        <td>
+                            <button th:onclick="'editarDispositivo(' + ${dispositivo.idDispositivo} + ')'" class="btn btn-warning">Editar</button>
+                            <button th:onclick="'eliminarDispositivo(' + ${dispositivo.idDispositivo} + ')'" class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <a th:href="@{/solicitud-beca}" class="btn">Volver a Solicitud de Beca</a>
+        </div>
+    </div>
+
+    <script>
+        function editarDispositivo(id) {
+            // Implementar lógica de edición
+            console.log('Editar dispositivo:', id);
+        }
+
+        function eliminarDispositivo(id) {
+            if (confirm('¿Está seguro de que desea eliminar este dispositivo?')) {
+                fetch(`/api/becados/dispositivos/eliminar/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert('Error al eliminar el dispositivo');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al eliminar el dispositivo');
+                });
+            }
+        }
+    </script>
+
+    <script src="/js/auth.js"></script>
+</body>
+</html>
