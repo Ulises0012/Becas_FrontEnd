@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Ingresos Familiares</title>
+</head>
+<body>
+    <form id="ingresosForm">
+        <h2>Registro de Ingresos Familiares</h2>
+        
+        <div class="form-group">
+            <label>Ingreso Total:</label>
+            <input type="number" name="ingresoTotal" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label>¿Tiene Negocio Propio?</label>
+            <input type="checkbox" name="negocioPropio">
+        </div>
+
+        <div class="form-group">
+            <label>Dirección del Negocio:</label>
+            <input type="text" name="direccionNegocio">
+        </div>
+
+        <div class="form-group">
+            <label>Ingreso Per Cápita:</label>
+            <input type="number" name="ingresoPerCapita" step="0.01" required>
+        </div>
+
+        <button type="submit">Guardar</button>
+    </form>
+</body>
+</html>

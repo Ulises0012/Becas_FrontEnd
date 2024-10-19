@@ -1,0 +1,154 @@
+/* Variables para colores */
+:root {
+    --primary-red: #69c9ba;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --text-dark: #333333;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--light-gray);
+}
+
+/* Contenedor del formulario */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos del header */
+header {
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: -20px -20px 20px -20px;
+    border-radius: 8px 8px 0 0;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.header-button {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--white);
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.header-button:hover {
+    background-color: var(--white);
+    color: var(--primary-red);
+}
+
+/* Grupos de formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: var(--white);
+}
+
+.form-control:disabled {
+    background-color: var(--light-gray);
+}
+
+/* Grupos de radio buttons */
+.radio-group {
+    margin: 10px 0;
+}
+
+.radio-option {
+    margin: 5px 0;
+}
+
+.radio-option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+}
+
+/* Área de texto */
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 20px;
+    background-color: var(--primary-red);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #8ddcd1;
+}
+
+/* Enlaces de cierre de sesión */
+.logout-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #dc3545;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.logout-link:hover {
+    color: #bd2130;
+    text-decoration: underline;
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Título principal */
+h1 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}

@@ -60,7 +60,7 @@
             </div>
             <div class="header-buttons">
                 <a th:href="@{/tipo_de_beca}" class="header-button">Tipos de Becas</a>
-                <button onclick="logout()" class="header-button">Cerrar sesión</button>
+                <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
             </div>
         </header>
         
@@ -68,9 +68,9 @@
             <div class="dashboard-content">
                 <!-- Card for "Solicitar Beca" -->
                 <div class="dashboard-card">
-                    <a th:href="@{/solicitar-beca}" class="card-button-link">
+                     <a th:href="@{/solicitar_beca_form}" class="card-button-link">
                         <button class="card-button">Solicitar Beca</button>
-                    </a>
+                        </a>
                     <img class="card-image" th:src="@{/images/solicitar_beca.jpg}" alt="Solicitar Beca">
                     <p class="card-description">
                         En este apartado podrás realizar las solicitudes de becas del estudiante.

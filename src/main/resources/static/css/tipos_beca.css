@@ -1,53 +1,47 @@
 /* Variables para colores */
 :root {
-    --primary-red: #dc1b22;
-    --white: #ffffff;
-    --light-gray: #f5f5f5;
-    --text-dark: #333333;
+    --primary-green: #69c9ba; /* Verde Pantone 3262C */
+    --secondary-gray: #717273; /* Gris Pantone 424C */
+    --background-light: #F5F5F5; /* Gris muy claro para el fondo */
+    --text-dark: #424242; /* Gris oscuro para texto */
+    --hover-green: #8ddcd1; /* Verde más claro para hover */
+    --white: #ffffff; /* Añadido para los botones */
 }
-
 /* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--light-gray);
+    background-color: var(--background-light);
 }
-
 .container {
     width: 100%;
     min-height: 100vh;
 }
-
 /* Header styles */
 header {
-    background-color: var(--primary-red);
-    color: var(--white);
+    background-color: var(--primary-green);
+    color: var(--text-dark);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 .header-left {
     display: flex;
     align-items: center;
 }
-
 .logo {
     width: 100px;
     height: auto;
 }
-
 .header-buttons {
     display: flex;
     gap: 1rem;
 }
-
 .header-button {
     color: var(--white);
     text-decoration: none;
@@ -57,71 +51,60 @@ header {
     font-weight: bold;
     transition: background-color 0.3s;
 }
-
 .header-button:hover {
     background-color: var(--white);
-    color: var(--primary-red);
+    color: var(--primary-green); /* Actualizado para usar el color verde */
 }
-
 /* Main content */
 main {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
-
 h1 {
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--text-dark);
+    color: var(--primary-green);
 }
-
 /* Becas container */
 .becas-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
-
 .beca-item {
-    background-color: var(--white);
+    background-color: var(--background-light);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .beca-header {
-    background-color: var(--primary-red);
-    color: var(--white);
+    background-color: var(--secondary-gray);
+    color: var(--background-light);
     padding: 1rem;
     font-size: 1.2rem;
     font-weight: bold;
 }
-
 .beca-content {
     display: flex;
     padding: 1.5rem;
 }
-
 .beca-text {
     flex: 1;
     padding-right: 1.5rem;
 }
-
 .beca-image {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .beca-image img {
     max-width: 100%;
     height: auto;
     max-height: 200px;
     object-fit: contain;
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .beca-content {
@@ -133,10 +116,45 @@ h1 {
         padding-bottom: 1.5rem;
     }
 }
-
 /* Actualización para el header del dashboard */
 .header-buttons {
     display: flex;
     gap: 1rem;
     justify-content: flex-end;
+}
+
+/* Nuevos estilos de botones añadidos */
+.card-button-link {
+    text-decoration: none;
+    display: block;
+}
+
+.card-button {
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s;
+}
+
+.card-button:hover {
+    background-color: var(--hover-green);
+}
+
+.logout-btn {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--white);
+    border-radius: 4px;
+}
+
+.logout-btn:hover {
+    background-color: var(--white);
+    color: var(--primary-green);
 }

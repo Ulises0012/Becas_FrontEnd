@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitud de Beca</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="/css/form_inicio.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAuth();
+        });
+
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';
+            }
+        }
+
+        window.history.forward();
+        function preventBack() {
+            window.history.forward();
+        }
+        setTimeout("preventBack()", 0);
+        window.onunload = function () { null };
+    </script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Agregar token desde la sesión al localStorage si no existe -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            const sessionToken = /*[[${session.token}]]*/ null;
+            if (sessionToken && !localStorage.getItem('token')) {
+                localStorage.setItem('token', sessionToken);
+            }
+            window.history.pushState(null, null, window.location.href);
+        }
+        /*]]>*/
+    </script>
+    
+    <!-- Agregar referencia al archivo auth.js -->
+    <script th:src="@{/js/auth.js}"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Solo verificar el token si no hay una sesión activa
+            if (!/*[[${session.carnet}]]*/) {
+                checkAuth();
+            }
+            
+            // Agregar listener para interceptar navegación hacia atrás
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function(event) {
+                window.history.pushState(null, null, window.location.href);
+            };
+        });
+
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';
+            }
+        }
+        
+        // Mejorado el manejo de la navegación hacia atrás
+        window.onunload = function() { 
+            return undefined;
+        };
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <header>
+            <div class="header-left">
+                <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
+            </div>
+            <div class="header-buttons">
+                <a th:href="@{/dashboard}" class="header-button">Inicio</a>
+                <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
+            </div>
+        </header>
+        <h1>Solicitud de Beca</h1>
+        
+        <form action="#" th:action="@{/solicitar-beca}" method="post">
+            <!-- Campo oculto para el carnet -->
+            <input type="hidden" name="carnet" th:value="${usuario.carnet}">
+            
+            <!-- Grupo de formulario para el nombre -->
+            <div class="form-group">
+                <label for="nombreEstudiante">Nombre del Estudiante:</label>
+                <input 
+                    type="text" 
+                    id="nombreEstudiante" 
+                    name="nombreEstudiante" 
+                    class="form-control" 
+                    th:value="${usuario.estudiante.nombre + ' ' + usuario.estudiante.apellido}" 
+                    readonly>
+            </div>
+            
+            <!-- Grupo de formulario para tipos de beca -->
+            <div class="form-group">
+                <label>Tipo de Beca:</label>
+                <div class="radio-group">
+                    <div class="radio-option" th:each="tipoBeca : ${tiposBeca}">
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="tipoBecaSeleccionada" 
+                                th:value="${tipoBeca.id}" 
+                                required>
+                            <span th:text="${tipoBeca.nombre}"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grupo de formulario para el motivo -->
+            <div class="form-group">
+                <label for="motivo">Motivo de la Solicitud:</label>
+                <textarea 
+                    id="motivo" 
+                    name="motivo" 
+                    class="form-control" 
+                    required
+                    placeholder="Por favor, explique el motivo por el cual está solicitando esta beca..."></textarea>
+            </div>
+            
+            <!-- Botón de envío -->
+            <div class="form-group">
+                <button type="submit" class="btn">Siguiente</button>
+            </div>
+        </form>
+        
+    </div>
+
+    <script src="/js/auth.js"></script>
+</body>
+</html>
