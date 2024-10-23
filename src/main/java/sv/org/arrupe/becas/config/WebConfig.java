@@ -27,9 +27,9 @@ public class WebConfig implements WebMvcConfigurer {
     // Configuración CORS para permitir solicitudes entre el frontend y el backend
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**") // Aplica CORS a todas las rutas
-                .allowedOrigins("http://192.242.6.131", "http://localhost")  // Cambia por la IP o URL de tu frontend
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
+        registry.addMapping("/api/**") // Aplica CORS solo a las rutas de API
+                .allowedOrigins("http://localhost:8080")  // URL de tu frontend
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
