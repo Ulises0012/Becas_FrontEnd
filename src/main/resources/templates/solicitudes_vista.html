@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Dashboard - Sistema de Becas</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}">
+    <title>Mis Solicitudes de Beca</title>
+    <link rel="stylesheet" th:href="@{/css/solicitudes_vista.css}">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -51,44 +50,52 @@
             return undefined;
         };
     </script>
+    
 </head>
 <body>
-    <div class="dashboard-container">
-        <header>
+    <header>
             <div class="header-left">
                 <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
             </div>
             <div class="header-buttons">
-                <a th:href="@{/tipo_de_beca}" class="header-button">Tipos de Becas</a>
+                <a th:href="@{/dashboard}" class="header-button">Inicio</a>
                 <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
             </div>
         </header>
-        
-        <main>
-            <div class="dashboard-content">
-                <!-- Card for "Solicitar Beca" -->
-                <div class="dashboard-card">
-                     <a th:href="@{/solicitar_beca_form}" class="card-button-link">
-                        <button class="card-button">Solicitar Beca</button>
-                        </a>
-                    <img class="card-image" th:src="@{/images/solicitar_beca.jpg}" alt="Solicitar Beca">
-                    <p class="card-description">
-                        En este apartado podrás realizar las solicitudes de becas del estudiante.
-                    </p>
-                </div>
-                
-                <!-- Card for "Ver Mis peticiones" -->
-                <div class="dashboard-card">
-                    <a th:href="@{/solicitudes_vista}" class="card-button-link">
-                        <button class="card-button">Ver Mis peticiones</button>
-                    </a>
-                    <img class="card-image" th:src="@{/images/ver_solicitudes.png}" alt="Ver Peticiones">
-                    <p class="card-description">
-                        Aquí podrás ver las solicitudes que has realizado.
-                    </p>
-                </div>
+    <main>
+        <div class="container">
+            <!-- Mostrar errores si los hay -->
+            <div th:if="${error}">
+                <p class="error" th:text="${error}"></p>
             </div>
-        </main>
-    </div>
+            <!-- Mostrar tabla de solicitudes si existen -->
+            <div th:if="${solicitudes != null && !solicitudes.isEmpty()}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Beca</th>
+                            <th>Fecha de Creación</th>
+                            <th>Motivo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="solicitud : ${solicitudes}">
+                            <td th:text="${solicitud.nombreTipoBeca}">Tipo de Beca</td>
+                            <td th:text="${solicitud.fechaFormateada}">Fecha Creación</td>
+                            <td th:text="${solicitud.motivo}">Motivo</td>
+                            <td th:text="${solicitud.estadoSolicitud}" 
+                                th:class="${solicitud.estadoSolicitud == 'Aprobado' ? 'estado-aprobado' : (solicitud.estadoSolicitud == 'Pendiente' ? 'estado-pendiente' : (solicitud.estadoSolicitud == 'Rechazado' || solicitud.estadoSolicitud == 'Revocado' ? 'estado-rechazado' : ''))}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Mensaje si no hay solicitudes -->
+            <div th:if="${solicitudes == null || solicitudes.isEmpty()}">
+                <p>No se encontraron solicitudes de beca para el usuario actual.</p>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Gestión de Dispositivos Electrónicos</title>
+    <title>Gestión de Electrodomésticos</title>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -56,25 +56,25 @@
             </div>
         </header>
 
-        <h1>Gestión de Dispositivos Electrónicos</h1>
+        <h1>Gestión de Electrodomésticos</h1>
 
-        <!-- Lista de dispositivos actuales con edición directa -->
-        <div id="listaDispositivos">
-            <h2>Dispositivos Actuales</h2>
-            <form id="actualizarDispositivosForm">
+        <!-- Lista de electrodomésticos actuales con edición directa -->
+        <div id="listaElectrodomesticos">
+            <h2>Electrodomésticos Actuales</h2>
+            <form id="actualizarElectrodomesticosForm">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Tipo de Dispositivo</th>
+                            <th>Tipo de Electrodoméstico</th>
                             <th>Cantidad</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="dispositivo : ${dispositivos}">
-                            <td th:text="${dispositivo.tipoDispositivo.nombreDispositivo}"></td>
+                        <tr th:each="electrodomestico : ${electrodomesticos}">
+                            <td th:text="${electrodomestico.tipoElectrodomestico.nombre_electrodomestico}"></td>
                             <td>
-                                <input type="number" name="cantidad" th:value="${dispositivo.cantidad}" min="1" required>
-                                <input type="hidden" name="idDispositivo" th:value="${dispositivo.idDispositivo}">
+                                <input type="number" name="cantidad" th:value="${electrodomestico.cantidad}" min="1" required>
+                                <input type="hidden" name="idElectrodomestico" th:value="${electrodomestico.idElectrodomestico}">
                             </td>
                         </tr>
                     </tbody>
@@ -82,7 +82,6 @@
                 
                 <br>
                 
-                <br>
                 <div class="form-group">
                     <a href="#" class="btn" onclick="enviarFormulario()">Siguiente</a>
                 </div>
@@ -97,45 +96,42 @@
         }
 
         async function enviarFormulario() {
-    const form = document.getElementById('actualizarDispositivosForm');
-    const inputs = form.querySelectorAll('input[name="cantidad"]');
-    const dispositivos = [];
+            const form = document.getElementById('actualizarElectrodomesticosForm');
+            const inputs = form.querySelectorAll('input[name="cantidad"]');
+            const electrodomesticos = [];
 
-    // Crear array de dispositivos a actualizar
-    inputs.forEach(input => {
-        const idDispositivo = parseInt(input.nextElementSibling.value); // ID del dispositivo (input hidden)
-        const cantidad = parseInt(input.value);
-        
-        dispositivos.push({
-            idDispositivo: idDispositivo,
-            cantidad: cantidad
-        });
-    });
-
-    try {
-        const response = await fetch('/api/becados/dispositivos/actualizar', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(dispositivos)
-        });
-
-        const data = await response.json();
-
-        if (response.ok || response.status === 207) {
-            if (data.errores && data.errores.length > 0) {
-                alert('Algunos dispositivos no pudieron actualizarse:\n' + data.errores.join('\n'));
-            } else {
+            inputs.forEach(input => {
+                const idElectrodomestico = parseInt(input.nextElementSibling.value);
+                const cantidad = parseInt(input.value);
                 
-                window.location.href = '/electrodomesticos_form';
+                electrodomesticos.push({
+                    idElectrodomestico: idElectrodomestico,
+                    cantidad: cantidad
+                });
+            });
+
+            try {
+                const response = await fetch('/api/becados/electrodomesticos/actualizar', {  <!-- Cambié esta ruta para reflejar la estructura de la segunda página -->
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(electrodomesticos)
+                });
+
+                const data = await response.json();
+
+                if (response.ok || response.status === 207) {
+                    if (data.errores && data.errores.length > 0) {
+                        alert('Algunos electrodomésticos no pudieron actualizarse:\n' + data.errores.join('\n'));
+                    } else {
+                        window.location.href = '/egresos_form'; <!-- Cambié esta ruta para que apunte a la siguiente página -->
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
             }
         }
-    } catch (error) {
-        console.error('Error:', error);
-        
-    }
-}
     </script>
 
     <script src="/js/auth.js"></script>
