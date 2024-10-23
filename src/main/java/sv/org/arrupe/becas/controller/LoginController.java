@@ -35,7 +35,7 @@ public class LoginController {
             logger.info("Usuario ya autenticado con carnet: {}, redirigiendo al dashboard", session.getAttribute("carnet"));
             return "redirect:/dashboard";
         }
-        return "redirect:/login";
+        return "index";
     }
 
     @GetMapping("/login")

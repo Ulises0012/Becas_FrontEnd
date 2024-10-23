@@ -29,7 +29,9 @@ public class WebConfig implements WebMvcConfigurer {
                     "/api/**",          // APIs públicas
                     "/error",           // Páginas de error
                     "/favicon.ico",     // Favicon
-                    "/assets/**"        // Otros recursos estáticos
+                    "/assets/**",
+                    "/tipos/**"// Otros recursos estáticos
+                    
                 );
     }
 

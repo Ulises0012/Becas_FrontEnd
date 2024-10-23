@@ -1,52 +1,53 @@
-document.addEventListener('DOMContentLoaded', function() {
-    fetchEstudiosSocioeconomicos();
+document.addEventListener("DOMContentLoaded", () => {
+    cargarBecados();
 });
 
-function fetchEstudiosSocioeconomicos() {
-    fetch('http://localhost:8081/api/estudiosocioeconomico')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); // Verificar la respuesta en la consola
-            const tableBody = document.querySelector('#solicitudes-table tbody');
-            tableBody.innerHTML = '';
-            data.forEach(estudio => {
-                // Cambiar aquí para que se ajuste a los datos que estás recibiendo
-                const row = `
-                    <tr>
-                        <td>Estudiante ID: ${estudio.idEstudiante}</td> <!-- Esto debe cambiar para mostrar el nombre del estudiante -->
-                        <td>${formatTipoBeca(estudio.tipoBeca)}</td>
-                        <td>
-                            <button class="ver-btn" onclick="verEstudioSocioeconomico(${estudio.idEstudio})">Ver Estudio</button>
-                            <button class="eliminar-btn" onclick="eliminarEstudioSocioeconomico(${estudio.idEstudio})">Eliminar Estudio</button>
-                        </td>
-                    </tr>
-                `;
-                tableBody.innerHTML += row;
-            });
-        })
-        .catch(error => console.error('Error:', error));
-}
+async function cargarBecados() {
+    try {
+        const response = await fetch('http://localhost:8081/api/becados'); // URL de tu API
+        if (!response.ok) {
+            throw new Error(`Error en la respuesta: ${response.statusText}`);
+        }
+        const becados = await response.json();
+        
+        const tbody = document.querySelector("#solicitudes-table tbody");
+        tbody.innerHTML = ""; // Limpiar la tabla antes de llenarla
 
-function formatTipoBeca(tipoBeca) {
-    return tipoBeca.replace('_', ' ').toLowerCase()
-        .replace(/\b\w/g, l => l.toUpperCase());
-}
+        becados.forEach(becado => {
+            const tr = document.createElement("tr");
 
-function verEstudioSocioeconomico(id) {
-    // Implementar lógica para ver el estudio socioeconómico
-    console.log('Ver estudio socioeconómico', id);
-}
+            // Acceso a los campos según el JSON proporcionado
+            const nombreEstudiante = becado.nombreEstudiante; // Accede directamente al nombre
+            const apellidoEstudiante = becado.apellidoEstudiante; // Accede directamente al apellido
+            const tipoBeca = becado.nombreBeca; // Accede directamente al nombre de la beca
 
-function eliminarEstudioSocioeconomico(id) {
-    if (confirm('¿Está seguro de que desea eliminar este estudio socioeconómico?')) {
-        fetch(`/api/estudiosocioeconomico/${id}`, { method: 'DELETE' })
-            .then(response => {
-                if (response.ok) {
-                    fetchEstudiosSocioeconomicos(); // Recargar la lista
-                } else {
-                    console.error('Error al eliminar el estudio socioeconómico');
-                }
-            })
-            .catch(error => console.error('Error:', error));
+            tr.innerHTML = `
+                <td>${nombreEstudiante} ${apellidoEstudiante}</td>
+                <td>${tipoBeca}</td>
+                <td>
+                    <button class="ver-btn" onclick="verDetalles(${becado.id})">Ver</button>
+                    <button class="editar-btn" onclick="editarEstudiante(${becado.id})">Editar</button>
+                    <button class="eliminar-btn" onclick="eliminarEstudiante(${becado.id})">Eliminar</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    } catch (error) {
+        console.error("Error al cargar los datos:", error);
     }
+}
+
+function verDetalles(id) {
+    // Implementa la lógica para mostrar los detalles del estudiante
+    alert(`Mostrar detalles para el ID: ${id}`);
+}
+
+function editarEstudiante(id) {
+    // Implementa la lógica para editar al estudiante
+    alert(`Editar estudiante con ID: ${id}`);
+}
+
+function eliminarEstudiante(id) {
+    // Implementa la lógica para eliminar al estudiante
+    alert(`Eliminar estudiante con ID: ${id}`);
 }

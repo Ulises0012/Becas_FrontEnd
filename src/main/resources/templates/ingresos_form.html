@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Ingresos Familiares</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="/css/form_inicio.css">
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            const sessionToken = /*[[${session.token}]]*/ null;
+            if (sessionToken && !localStorage.getItem('token')) {
+                localStorage.setItem('token', sessionToken);
+            }
+            window.history.pushState(null, null, window.location.href);
+        }
+        /*]]>*/
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <header>
+            <div class="header-left">
+                <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
+            </div>
+            <div class="header-buttons">
+                <a th:href="@{/dashboard}" class="header-button">Inicio</a>
+                <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
+            </div>
+        </header>
+
+        <h1>Gestión de Ingresos Familiares</h1>
+
+        <div id="listaIngresos">
+            <h2>Ingresos Actuales</h2>
+            <form id="actualizarIngresosForm">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ingreso Total</td>
+                            <td><input type="number" name="ingresoTotal" th:value="${ingresos['ingresoTotal']}" step="0.01" required></td>
+                        </tr>
+                        <tr>
+                            <td>Negocio Propio</td>
+                            <td><input type="checkbox" name="negocioPropio" th:checked="${ingresos['negocioPropio']}"></td>
+                        </tr>
+                        <tr>
+                            <td>Dirección del Negocio</td>
+                            <td><input type="text" name="direccionNegocio" th:value="${ingresos['direccionNegocio']}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Ingreso Per Cápita</td>
+                            <td><input type="number" name="ingresoPerCapita" th:value="${ingresos['ingresoPerCapita']}" step="0.01" required></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-group">
+                    <button type="button" class="btn" onclick="enviarFormulario()">Actualizar Ingresos</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/login.html';
+        }
+
+        async function enviarFormulario() {
+            const form = document.getElementById('actualizarIngresosForm');
+            const ingresos = {
+                ingresoTotal: parseFloat(form.querySelector('input[name="ingresoTotal"]').value),
+                negocioPropio: form.querySelector('input[name="negocioPropio"]').checked,
+                direccionNegocio: form.querySelector('input[name="direccionNegocio"]').value,
+                ingresoPerCapita: parseFloat(form.querySelector('input[name="ingresoPerCapita"]').value),
+            };
+
+            try {
+                const response = await fetch('/api/becados/ingresos', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(ingresos),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.href = '/ingresos_form';
+                } else {
+                    alert('Error al actualizar los ingresos: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al procesar la solicitud');
+            }
+        }
+    </script>
+</body>
+</html>
