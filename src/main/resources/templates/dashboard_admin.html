@@ -4,85 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Administrador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
+            color: #333;
         }
         .header {
-            background-color: #00a3e0;
+            background-color: #007bff;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
             display: flex;
-            align-items: center; /* Centra verticalmente */
-            justify-content: space-between; /* Espacio entre los elementos */
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         .logo {
             width: 50px;
             height: 50px;
-            margin-right: 10px;
+            margin-right: 20px;
         }
         .title {
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: 500;
             margin: 0;
         }
         .logout-btn {
-            background-color: transparent; /* Color de fondo */
-            color: white; /* Color de texto */
-            padding: 8px 12px; /* Espaciado interno */
-            text-decoration: none; /* Sin subrayado */
-            border-radius: 5px; /* Bordes redondeados */
-            transition: background-color 0.3s; /* Transición suave */
-            margin-left: auto; /* Empuja el botón hacia la derecha */
+            background-color: #dc3545; /* Manteniendo los cambios de Carlos */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
         .logout-btn:hover {
-            background-color: #ff1a1a; /* Color de fondo al pasar el mouse */
+            background-color: #c82333;
         }
         .container {
             display: flex;
-            justify-content: center; /* Centra horizontalmente */
-            align-items: center; /* Centra verticalmente */
-            height: calc(100vh - 80px); /* Altura total menos la altura del header */
-            padding: 20px;
-            flex-wrap: wrap; /* Permite que las cartas se envuelvan si son muchas */
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+            flex-wrap: wrap;
         }
         .card {
             background-color: white;
-            border-radius: 5px;
-            padding: 20px;
-            width: 45%;
+            border-radius: 8px;
+            padding: 30px;
+            width: 300px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 10px; /* Espaciado entre cartas */
-            display: flex;
-            flex-direction: column; /* Coloca el contenido en columna */
-            justify-content: center; /* Centra verticalmente el contenido de la carta */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
         }
         .card-button {
-            background-color: #0056a3; /* Color de fondo del botón */
-            color: white; /* Color del texto */
-            border: none; /* Sin borde */
-            border-radius: 5px; /* Bordes redondeados */
-            padding: 10px 15px; /* Espaciado interno */
-            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-            font-size: 18px; /* Tamaño de fuente */
-            margin-bottom: 10px; /* Espaciado debajo del botón */
-            width: 100%; /* El botón ocupa todo el ancho del contenedor */
-            transition: background-color 0.3s; /* Transición suave */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-bottom: 20px;
+            width: 100%;
+            transition: background-color 0.3s;
         }
         .card-button:hover {
-            background-color: #003d7a; /* Color de fondo al pasar el mouse */
+            background-color: #0056b3;
         }
         .card img {
-            width: 200px; /* Establecer el ancho deseado */
-            height: 150px; /* Establecer la altura deseada */
-            object-fit: cover; /* Asegura que la imagen mantenga su proporción sin deformarse */
-            margin: 10px auto; /* Centra la imagen */
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
         }
         .card p {
+            font-size: 16px;
             margin-top: 10px;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
         }
     </style>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">

@@ -1,195 +1,168 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard Administrador</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f0f0;
-            }
-            .header {
-                background-color: #00a3e0;
-                color: white;
-                padding: 10px 20px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .logo {
-                width: 50px;
-                height: 50px;
-                margin-right: 10px;
-            }
-            .title {
-                font-size: 24px;
-                margin: 0;
-            }
-            .logout-btn, .dashboard-btn {
-                background-color: transparent;
-                color: white;
-                padding: 8px 12px;
-                text-decoration: none;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-            }
-            .logout-btn {
-                margin-left: auto;
-            }
-            .logout-btn:hover {
-                background-color: #ff1a1a;
-            }
-            .dashboard-btn {
-                margin-left: 20px;
-            }
-            .dashboard-btn:hover {
-                background-color: #0056b3;
-            }
-            main {
-                padding: 20px;
-            }
-            table {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 500;
+            margin: 0;
+        }
+        .header-button {
+            background-color: #dc3545; /* Manteniendo los cambios de Carlos */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .header-button:hover {
+            background-color: #c82333;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .card-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-bottom: 20px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .card-button:hover {
+            background-color: #0056b3;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .card p {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .card {
                 width: 100%;
-                border-collapse: collapse;
-                margin-top: 20px;
             }
-            th, td {
-                border: 1px solid #ddd;
-                padding: 8px;
-                text-align: left;
+        }
+    </style>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Agregar token desde la sesión al localStorage si no existe -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            const sessionToken = /*[[${session.token}]]*/ null;
+            if (sessionToken && !localStorage.getItem('token')) {
+                localStorage.setItem('token', sessionToken);
             }
-            th {
-                background-color: #00a3e0;
-                color: white;
+            window.history.pushState(null, null, window.location.href);
+        }
+        /*]]>*/
+    </script>
+    
+    <!-- Agregar referencia al archivo auth.js -->
+    <script th:src="@{/js/auth.js}"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Solo verificar el token si no hay una sesión activa
+            if (!/*[[${session.carnet}]]*/) {
+                checkAuth();
             }
-            .ver-btn, .editar-btn, .eliminar-btn {
-                padding: 5px 10px;
-                margin-right: 5px;
-                border: none;
-                border-radius: 3px;
-                cursor: pointer;
-            }
-            .ver-btn {
-                background-color: #4CAF50;
-                color: white;
-            }
-            .editar-btn {
-                background-color: #ffa500;
-                color: white;
-            }
-            .eliminar-btn {
-                background-color: #f44336;
-                color: white;
-            }
-            .modal {
-                display: flex;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.4);
-            }
-            .modal-content {
-                background-color: #fefefe;
-                margin: 15% auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 80%;
-            }
-            .close {
-                color: #aaa;
-                float: right;
-                font-size: 28px;
-                font-weight: bold;
-            }
-            .close:hover,
-            .close:focus {
-                color: black;
-                text-decoration: none;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body>
-        <header class="header">
-            <img th:src="@{/images/logo.png}" alt="Logo" class="logo">
-            <h1 class="title">Administrador</h1>
-            <a th:href="@{/dashboard_admin}" class="dashboard-btn">Inicio</a>
-            <a th:href="@{/logout}" class="logout-btn">Cerrar sesión</a>
-        </header>
+            
+            // Agregar listener para interceptar navegación hacia atrás
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function(event) {
+                window.history.pushState(null, null, window.location.href);
+            };
+        });
 
-        <main>
-            <h2>Solicitudes de Becas</h2>
-            <table id="solicitudes-table">
-                <thead>
-                    <tr>
-                        <th>Nombre de Estudiante</th>
-                        <th>Tipo de Beca</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Las filas se llenarán dinámicamente con JavaScript -->
-                </tbody>
-            </table>
-        </main>
-
-        <!-- Modal para visualizar detalles -->
-        <div id="modal" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Detalles del Estudiante</h2>
-                <div id="detalles-estudiante"></div>
-            </div>
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';
+            }
+        }
+        
+        // Mejorado el manejo de la navegación hacia atrás
+        window.onunload = function() { 
+            return undefined;
+        };
+    </script>
+</head>
+<body>
+    <header class="header">
+        <img th:src="@{/images/logo.png}" alt="Logo" class="logo">
+        <h1 class="title">Administrador</h1>
+        <button onclick="logout()" class="header-button">Cerrar sesión</button>
+    </header>
+    <div class="container">
+        <div class="card">
+            <button class="card-button" onclick="location.href='/solicitudes'">Solicitudes</button>
+            <img th:src="@{/images/solicitar_beca.jpg}" alt="Solicitudes">
+            <p>En este apartado podrás ver las solicitudes a becas de los estudiantes</p>
         </div>
-
-        <!-- Modal para editar detalles -->
-        <div id="modal-editar" class="modal" style="display:none;">
-            <div class="modal-content">
-                <span class="close-editar">&times;</span>
-                <h2>Editar Estudiante</h2>
-                <form id="form-editar">
-                    <input type="hidden" id="editar-id">
-                    <label for="editar-nombre">Nombre:</label>
-                    <input type="text" id="editar-nombre" required>
-                    <label for="editar-tipo-beca">Tipo de Beca:</label>
-                    <select id="editar-tipo-beca">
-                        <option value="Beca Completa (alimentación, libros, uniformes y cuota)">Beca Completa</option>
-                        <option value="Beca de Libro">Beca de Libro</option>
-                        <option value="Beca Uniforme">Beca Uniforme</option>
-                        <option value="Beca Alimento">Beca Alimento</option>
-                    </select>
-                    <button type="submit">Guardar Cambios</button>
-                </form>
-            </div>
+        <div class="card">
+            <button class="card-button" onclick="location.href='/becados'">Becados</button>
+            <img th:src="@{/images/ver_solicitudes.png}" alt="Becados">
+            <p>Aquí podrás ver las becas que poseen los estudiantes</p>
         </div>
-
-        <script th:src="@{/js/script.js}"></script>
-        <script>
-            // Código para manejar los modales y las acciones
-            const modal = document.getElementById("modal");
-            const modalEditar = document.getElementById("modal-editar");
-
-            document.querySelector(".close").onclick = function() {
-                modal.style.display = "none";
-            }
-            document.querySelector(".close-editar").onclick = function() {
-                modalEditar.style.display = "none";
-            }
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-                if (event.target == modalEditar) {
-                    modalEditar.style.display = "none";
-                }
-            }
-        </script>
-    </body>
+    </div>
+</body>
 </html>

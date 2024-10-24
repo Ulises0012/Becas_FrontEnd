@@ -1,176 +1,222 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Administrador</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .header {
-            background-color: #00a3e0;
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-        }
-        .title {
-            font-size: 24px;
-            margin: 0;
-        }
-        .logout-btn, .dashboard-btn {
-            background-color: transparent;
-            color: white;
-            padding: 8px 12px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .logout-btn {
-            margin-left: auto;
-        }
-        .logout-btn:hover {
-            background-color: #ff1a1a;
-        }
-        .dashboard-btn {
-            margin-left: 20px;
-        }
-        .dashboard-btn:hover {
-            background-color: #0056b3;
-        }
-        main {
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #00a3e0;
-            color: white;
-        }
-        .ver-btn, .editar-btn, .eliminar-btn {
-            padding: 5px 10px;
-            margin-right: 5px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-        .ver-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-        .editar-btn {
-            background-color: #ffa500; /* Color del botón de editar */
-            color: white;
-        }
-        .eliminar-btn {
-            background-color: #f44336;
-            color: white;
-        }
-        .modal {
-            display: flex;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <img th:src="@{/images/logo.png}" alt="Logo" class="logo">
-        <h1 class="title">Administrador</h1>
-        <a th:href="@{/dashboard_admin}" class="dashboard-btn">Inicio</a>
-        <a th:href="@{/logout}" class="logout-btn">Cerrar sesión</a>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard Administrador</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f9fa;
+                color: #333;
+            }
+            .header {
+                background-color: #007bff;
+                color: white;
+                padding: 15px 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            .logo {
+                width: 50px;
+                height: 50px;
+                margin-right: 20px;
+            }
+            .title {
+                font-size: 28px;
+                font-weight: 500;
+                margin: 0;
+            }
+            .logout-btn, .dashboard-btn {
+                background-color: transparent;
+                color: white;
+                padding: 10px 15px;
+                text-decoration: none;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+            .logout-btn:hover {
+                background-color: #dc3545;
+            }
+            .dashboard-btn:hover {
+                background-color: #0056b3;
+            }
+            main {
+                padding: 30px;
+            }
+            h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #007bff;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 12px;
+                text-align: left;
+            }
+            th {
+                background-color: #007bff;
+                color: white;
+            }
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+            .ver-btn, .editar-btn, .eliminar-btn {
+                padding: 8px 12px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+            .ver-btn {
+                background-color: #28a745;
+                color: white;
+            }
+            .editar-btn {
+                background-color: #ffc107;
+                color: white;
+            }
+            .eliminar-btn {
+                background-color: #dc3545;
+                color: white;
+            }
+            .ver-btn:hover, .editar-btn:hover, .eliminar-btn:hover {
+                opacity: 0.8;
+            }
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 20px;
+            }
+            .modal-content {
+                background-color: #fff;
+                margin: 10% auto;
+                padding: 20px;
+                border-radius: 8px;
+                width: 40%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                position: relative;
+            }
+            .close-editar, .close-ver {
+                position: absolute;
+                right: 15px;
+                top: 10px;
+                font-size: 24px;
+                color: #888;
+                cursor: pointer;
+            }
+            .close-editar:hover, .close-ver:hover {
+                color: #000;
+            }
+            label {
+                display: block;
+                margin: 10px 0 5px;
+                font-weight: 500;
+            }
+            input[type="text"],
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+            }
+            .guardar-btn {
+                background-color: #28a745;
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .guardar-btn:hover {
+                background-color: #218838;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <img th:src="@{/images/logo.png}" alt="Logo" class="logo">
+            <h1 class="title">Administrador</h1>
+            <a th:href="@{/dashboard_admin}" class="dashboard-btn">Inicio</a>
+            <a th:href="@{/logout}" class="logout-btn">Cerrar sesión</a>
+        </header>
 
-    <main>
-        <h2>Estudiantes Becados</h2>
-        <table id="solicitudes-table">
-            <thead>
-                <tr>
-                    <th>Nombre de Estudiante</th>
-                    <th>Tipo de Beca</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aquí se llenarán los datos mediante JavaScript -->
-            </tbody>
-        </table>
-    </main>
+        <main>
+            <h2>Estudiantes Becados</h2>
+            <table id="solicitudes-table">
+                <thead>
+                    <tr>
+                        <th>Nombre de Estudiante</th>
+                        <th>Tipo de Beca</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se llenarán los datos mediante JavaScript -->
+                </tbody>
+            </table>
+        </main>
 
-    <!-- Modal para visualizar detalles -->
-    <div id="modal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close" onclick="cerrarModal('modal')">&times;</span>
-            <h2>Detalles del Estudiante</h2>
-            <div id="detalles-estudiante"></div>
+        <!-- Modal para editar detalles -->
+        <div id="modal-editar" class="modal">
+            <div class="modal-content">
+                <span class="close-editar" onclick="cerrarModal('modal-editar')">&times;</span>
+                <h2>Editar Estudiante</h2>
+                <form id="form-editar" onsubmit="guardarCambios(event)">
+                    <input type="hidden" id="editar-id">
+
+                    <!-- Campo de Nombre del Estudiante -->
+                    <label for="editar-nombre">Nombre del Estudiante:</label>
+                    <input type="text" id="editar-nombre" disabled style="border: none; background-color: transparent; font-size: 18px; color: #333; padding: 0; margin-bottom: 15px;">
+
+                    <!-- Combobox para Tipo de Beca -->
+                    <label for="editar-tipo-beca">Tipo de Beca:</label>
+                    <select id="editar-tipo-beca">
+                        <option value="Beca Completa">Beca Completa</option>
+                        <option value="Beca de Libro">Beca de Libro</option>
+                        <option value="Beca Uniforme">Beca Uniforme</option>
+                        <option value="Beca Alimento">Beca Alimento</option>
+                    </select>
+
+                    <button type="submit" class="guardar-btn">Guardar Cambios</button>
+                </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Modal para editar detalles -->
-    <div id="modal-editar" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close-editar" onclick="cerrarModal('modal-editar')">&times;</span>
-            <h2>Editar Estudiante</h2>
-            <form id="form-editar" onsubmit="guardarCambios(event)">
-                <input type="hidden" id="editar-id">
-                <input type="hidden" id="editar-id-estudiante"> <!-- Agregado aquí -->
-                <label for="editar-nombre">Nombre:</label>
-                <input type="text" id="editar-nombre" required>
-                <label for="editar-tipo-beca">Tipo de Beca:</label>
-                <select id="editar-tipo-beca">
-                    <option value="BECA_COMPLETA">Beca Completa</option>
-                    <option value="BECA_LIBRO">Beca de Libro</option>
-                    <option value="BECA_UNIFORME">Beca Uniforme</option>
-                    <option value="BECA_ALIMENTO">Beca Alimento</option>
-                </select>
-                <button type="submit">Guardar Cambios</button>
-            </form>
+        <!-- Modal para ver detalles -->
+        <div id="modal-ver" class="modal">
+            <div class="modal-content">
+                <span class="close-ver" onclick="cerrarModal('modal-ver')">&times;</span>
+                <h2>Detalles del Estudiante</h2>
+                <p id="ver-nombre"></p>
+                <p id="ver-tipo-beca"></p>
+            </div>
         </div>
-    </div>
 
-    <script th:src="@{/js/script.js}"></script>
-</body>
+        <script th:src="@{/js/script.js}"></script>
+    </body>
 </html>
