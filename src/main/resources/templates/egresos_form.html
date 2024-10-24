@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Egresos Familiares</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="/css/form_inicio.css">
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            const sessionToken = /*[[${session.token}]]*/ null;
+            if (sessionToken && !localStorage.getItem('token')) {
+                localStorage.setItem('token', sessionToken);
+            }
+            window.history.pushState(null, null, window.location.href);
+        }
+        /*]]>*/
+    </script>
+    <script th:src="@{/js/auth.js}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!/*[[${session.carnet}]]*/) {
+                checkAuth();
+            }
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function(event) {
+                window.history.pushState(null, null, window.location.href);
+            };
+        });
+
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';
+            }
+        }
+
+        window.onunload = function() {
+            return undefined;
+        };
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <header>
+            <div class="header-left">
+                <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
+            </div>
+            <div class="header-buttons">
+                <a th:href="@{/dashboard}" class="header-button">Inicio</a>
+                <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
+            </div>
+        </header>
+
+        <h1>Gestión de Egresos Familiares</h1>
+
+        <!-- Lista de egresos familiares con edición directa -->
+        <div id="listaEgresos">
+            <h2>Egresos Actuales</h2>
+            <form id="actualizarEgresosForm">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Monto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alimentación</td>
+                            <td>
+                                <input type="number" name="alimentacion" th:value="${egresos.get('alimentacion')}" step="0.01" min="0" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Transporte</td>
+                            <td>
+                                <input type="number" name="transporte" th:value="${egresos.get('transporte')}" step="0.01" min="0" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Servicios Básicos</td>
+                            <td>
+                                <input type="number" name="serviciosBasicos" th:value="${egresos.get('serviciosBasicos')}" step="0.01" min="0" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pago de Vivienda</td>
+                            <td>
+                                <input type="number" name="pagoVivienda" th:value="${egresos.get('pagoVivienda')}" step="0.01" min="0" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cotización</td>
+                            <td>
+                                <input type="number" name="cotizacion" th:value="${egresos.get('cotizacion')}" step="0.01" min="0" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Educación</td>
+                            <td>
+                                <input type="number" name="educacion" th:value="${egresos.get('educacion')}" step="0.01" min="0" required>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <br>
+                
+                <div class="form-group">
+                    <button type="button" class="btn" onclick="enviarFormulario()">Actualizar Egresos</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('token');
+            window.location.href = '/login.html';
+        }
+
+        async function enviarFormulario() {
+            const form = document.getElementById('actualizarEgresosForm');
+            const egresos = {
+                alimentacion: parseFloat(form.querySelector('input[name="alimentacion"]').value),
+                transporte: parseFloat(form.querySelector('input[name="transporte"]').value),
+                serviciosBasicos: parseFloat(form.querySelector('input[name="serviciosBasicos"]').value),
+                pagoVivienda: parseFloat(form.querySelector('input[name="pagoVivienda"]').value),
+                cotizacion: parseFloat(form.querySelector('input[name="cotizacion"]').value),
+                educacion: parseFloat(form.querySelector('input[name="educacion"]').value)
+            };
+
+            try {
+                const response = await fetch('/api/egresos', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(egresos)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    window.location.href = '/ingresos_form';
+                } else {
+                    alert('Error al actualizar los egresos: ' + data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al procesar la solicitud');
+            }
+        }
+    </script>
+
+    <script src="/js/auth.js"></script>
+</body>
+</html>

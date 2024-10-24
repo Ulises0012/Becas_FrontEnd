@@ -1,6 +1,6 @@
 /* Variables para colores */
 :root {
-    --primary-red: #dc1b22;
+    --primary-red: #69c9ba;
     --white: #ffffff;
     --light-gray: #f5f5f5;
     --text-dark: #333333;
@@ -120,7 +120,7 @@ main {
 }
 
 .card-button:hover {
-    background-color: #b01419;
+    background-color: #8ddcd1;
 }
 
 .card-image {

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Solicitudes de Beca</title>
+    <link rel="stylesheet" th:href="@{/css/solicitudes_vista.css}">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Agregar token desde la sesión al localStorage si no existe -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            const sessionToken = /*[[${session.token}]]*/ null;
+            if (sessionToken && !localStorage.getItem('token')) {
+                localStorage.setItem('token', sessionToken);
+            }
+            window.history.pushState(null, null, window.location.href);
+        }
+        /*]]>*/
+    </script>
+    
+    <!-- Agregar referencia al archivo auth.js -->
+    <script th:src="@{/js/auth.js}"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Solo verificar el token si no hay una sesión activa
+            if (!/*[[${session.carnet}]]*/) {
+                checkAuth();
+            }
+            
+            // Agregar listener para interceptar navegación hacia atrás
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function(event) {
+                window.history.pushState(null, null, window.location.href);
+            };
+        });
+
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';
+            }
+        }
+        
+        // Mejorado el manejo de la navegación hacia atrás
+        window.onunload = function() { 
+            return undefined;
+        };
+    </script>
+    
+</head>
+<body>
+    <header>
+            <div class="header-left">
+                <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
+            </div>
+            <div class="header-buttons">
+                <a th:href="@{/dashboard}" class="header-button">Inicio</a>
+                <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
+            </div>
+        </header>
+    <main>
+        <div class="container">
+            <!-- Mostrar errores si los hay -->
+            <div th:if="${error}">
+                <p class="error" th:text="${error}"></p>
+            </div>
+            <!-- Mostrar tabla de solicitudes si existen -->
+            <div th:if="${solicitudes != null && !solicitudes.isEmpty()}">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tipo de Beca</th>
+                            <th>Fecha de Creación</th>
+                            <th>Motivo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="solicitud : ${solicitudes}">
+                            <td th:text="${solicitud.nombreTipoBeca}">Tipo de Beca</td>
+                            <td th:text="${solicitud.fechaFormateada}">Fecha Creación</td>
+                            <td th:text="${solicitud.motivo}">Motivo</td>
+                            <td th:text="${solicitud.estadoSolicitud}" 
+                                th:class="${solicitud.estadoSolicitud == 'Aprobado' ? 'estado-aprobado' : (solicitud.estadoSolicitud == 'Pendiente' ? 'estado-pendiente' : (solicitud.estadoSolicitud == 'Rechazado' || solicitud.estadoSolicitud == 'Revocado' ? 'estado-rechazado' : ''))}">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Mensaje si no hay solicitudes -->
+            <div th:if="${solicitudes == null || solicitudes.isEmpty()}">
+                <p>No se encontraron solicitudes de beca para el usuario actual.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

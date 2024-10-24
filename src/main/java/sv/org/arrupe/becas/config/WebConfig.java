@@ -5,32 +5,59 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
 import sv.org.arrupe.becas.interceptor.AuthInterceptor;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-
+    
     @Bean
     public AuthInterceptor authInterceptor() {
-        return new AuthInterceptor(); // Crear una instancia del interceptor
+        return new AuthInterceptor();
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        // Aplicar el interceptor a las rutas que deseas proteger
         registry.addInterceptor(authInterceptor())
-                .addPathPatterns("/dashboard/**")  // Protege solo las rutas del dashboard
-                .excludePathPatterns("/login", "/api/**"); // Excluye el login y las rutas de API de autenticación
+                .addPathPatterns("/**") // Primero protege todas las rutas
+                .excludePathPatterns(
+                    "/login",           // Página de login
+                    "/procesar-login",  // Endpoint de procesamiento de login
+                    "/logout",          // Endpoint de logout
+                    "/css/**",          // Recursos estáticos CSS
+                    "/js/**",           // Recursos estáticos JavaScript
+                    "/images/**",       // Recursos estáticos de imágenes
+                    "/api/**",          // APIs públicas
+                    "/error",           // Páginas de error
+                    "/favicon.ico",     // Favicon
+                    "/assets/**",
+                    "/tipos/**"// Otros recursos estáticos
+                    
+                );
     }
 
-    // Configuración CORS para permitir solicitudes entre el frontend y el backend
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**") // Aplica CORS solo a las rutas de API
-                .allowedOrigins("http://localhost:8080")  // URL de tu frontend
+
+        registry.addMapping("/**")
+
+                .allowedOrigins(
+                    "http://192.242.6.131",  
+                    "http://localhost",
+                    "http://localhost:8080"   // Común para desarrollo local
+                )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+
+
                 .allowedHeaders("*")
-                .allowCredentials(true);
+                .exposedHeaders(
+                    "Authorization",
+                    "Cache-Control",
+                    "Content-Type",
+                    "Access-Control-Allow-Origin",
+                    "Access-Control-Allow-Headers",
+                    "Access-Control-Allow-Methods"
+                )
+                .allowCredentials(true)
+                .maxAge(3600L); // Cache CORS preflight durante 1 hora
     }
 }

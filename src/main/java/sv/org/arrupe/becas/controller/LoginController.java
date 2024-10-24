@@ -1,5 +1,7 @@
 package sv.org.arrupe.becas.controller;
 
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +35,7 @@ public class LoginController {
             logger.info("Usuario ya autenticado con carnet: {}, redirigiendo al dashboard", session.getAttribute("carnet"));
             return "redirect:/dashboard";
         }
-        return "redirect:/login";
+        return "index";
     }
 
     @GetMapping("/login")
@@ -148,10 +150,26 @@ public class LoginController {
         return "dashboard_admin";
     }
 
-    @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request, 
+                                  HttpServletResponse response, 
+                                  HttpSession session) {
+        String carnet = (String) session.getAttribute("carnet");
+        logger.info("Cerrando sesión para usuario con carnet: {}", carnet);
+        
+        // Configurar headers de caché
+        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        response.setHeader("Pragma", "no-cache");
+        response.setHeader("Expires", "0");
+        
+        // Invalidar la sesión
         session.invalidate();
-        logger.info("Sesión cerrada");
-        return "redirect:/login";
+        logger.info("Sesión cerrada exitosamente");
+        
+        return ResponseEntity.ok()
+            .header("Cache-Control", "no-cache, no-store, must-revalidate")
+            .header("Pragma", "no-cache")
+            .header("Expires", "0")
+            .body(Map.of("message", "Logout exitoso"));
     }
 }

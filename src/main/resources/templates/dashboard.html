@@ -5,26 +5,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
+    <!-- Agregar token desde la sesión al localStorage si no existe -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            const sessionToken = /*[[${session.token}]]*/ null;
+            if (sessionToken && !localStorage.getItem('token')) {
+                localStorage.setItem('token', sessionToken);
+            }
+            window.history.pushState(null, null, window.location.href);
+        }
+        /*]]>*/
+    </script>
+    
+    <!-- Agregar referencia al archivo auth.js -->
+    <script th:src="@{/js/auth.js}"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Solo verificar el token si no hay una sesión activa
+            if (!/*[[${session.carnet}]]*/) {
+                checkAuth();
+            }
+            
+            // Agregar listener para interceptar navegación hacia atrás
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function(event) {
+                window.history.pushState(null, null, window.location.href);
+            };
+        });
+
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/login.html';
+            }
+        }
+        
+        // Mejorado el manejo de la navegación hacia atrás
+        window.onunload = function() { 
+            return undefined;
+        };
+    </script>
 </head>
 <body>
     <div class="dashboard-container">
         <header>
-    <div class="header-left">
-        <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
-    </div>
-    <div class="header-buttons">
-        <a th:href="@{/tipo_de_beca}" class="header-button">Tipos de Becas</a>
-        <a th:href="@{/logout}" class="header-button">Cerrar sesión</a>
-    </div>
-</header>
+            <div class="header-left">
+                <img th:src="@{/images/logo.png}" alt="Logo del Colegio" class="logo">
+            </div>
+            <div class="header-buttons">
+                <a th:href="@{/tipo_de_beca}" class="header-button">Tipos de Becas</a>
+                <a href="#" onclick="logout()" class="header-button">Cerrar sesión</a>
+            </div>
+        </header>
         
         <main>
             <div class="dashboard-content">
                 <!-- Card for "Solicitar Beca" -->
                 <div class="dashboard-card">
-                    <a th:href="@{/solicitar-beca}" class="card-button-link">
+                     <a th:href="@{/solicitar_beca_form}" class="card-button-link">
                         <button class="card-button">Solicitar Beca</button>
-                    </a>
+                        </a>
                     <img class="card-image" th:src="@{/images/solicitar_beca.jpg}" alt="Solicitar Beca">
                     <p class="card-description">
                         En este apartado podrás realizar las solicitudes de becas del estudiante.
@@ -33,7 +79,7 @@
                 
                 <!-- Card for "Ver Mis peticiones" -->
                 <div class="dashboard-card">
-                    <a th:href="@{/mis-peticiones}" class="card-button-link">
+                    <a th:href="@{/solicitudes_vista}" class="card-button-link">
                         <button class="card-button">Ver Mis peticiones</button>
                     </a>
                     <img class="card-image" th:src="@{/images/ver_solicitudes.png}" alt="Ver Peticiones">
